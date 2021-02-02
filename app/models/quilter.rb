@@ -1,0 +1,3 @@
+class Quilter < ApplicationRecord
+
+end

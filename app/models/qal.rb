@@ -1,0 +1,3 @@
+class Qal < ApplicationRecord
+
+end
