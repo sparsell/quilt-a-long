@@ -1,2 +1,95 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* universal */
+
+body {
+padding-top: 60px;
+background-color: white;
+font-size: 16px;
+}
+
+section {
+    overflow: auto;
+}
+
+.container {
+    background-color: white;
+}
+
+.jumbotron {
+    background-color: white;
+    color: lightseagreen;
+    font-size: 3em;
+    font-family:monospace;
+}
+.navbar  {
+    background-color: white;
+}
+
+.btn {
+    font-size: .5em;
+    color: black;
+    background-color: lightsalmon;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.center {
+    text-align: center;
+}
+
+.center h1 {
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: lightseagreen;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px, solid #eaeaea;
+    color: #878;
+}
+
+footer a {
+    color: #555;
+}
+
+footer a:hover {
+    color: #222;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 1em;
+}

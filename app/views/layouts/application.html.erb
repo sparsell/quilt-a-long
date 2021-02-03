@@ -6,22 +6,18 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  
+    <%= render 'layouts/shim' %>
   </head>
+
   <body>
-    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <a class="navbar-brand" href="<%= sign_up_url %>"/>Sign Up</a>
-        <a class="navbar-brand" href="<%= log_in_url %>"/>Log In</a>
-        </div>
-      </div>
-    </div>
+    <%= render 'layouts/header' %>
+
+    
 
     <!-- content -->
     <div class="container"  role="main">
       <%= yield %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

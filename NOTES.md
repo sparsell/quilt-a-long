@@ -1,24 +1,9 @@
 Associations:
     Does a quilter have many QALs or belongs to many? (They can have more than one)
 
-    <!DOCTYPE html>
-<html>
-  <head>
-    <title> <%= yield(:title) %> | Quilt-A-Long App</title>
+Style TODOs:
+[x] move logo attribution to footer (can I use it w/out attribution right below the icon?)   
+[] remove/hide nav bar on home page
+[] Get FAQ, About and www.charliepops.com links to work properly
+[] Spacing of footer contents (centering attribution)
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
-
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  Icon attribution:
- - quilt block by Studio Fibonacci from the Noun Project
