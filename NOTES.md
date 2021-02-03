@@ -19,3 +19,6 @@ Associations:
 </html>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  Icon attribution:
+ - quilt block by Studio Fibonacci from the Noun Project

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/home', to: 'static_pages#home'
   get '/faq', to: 'static_pages#faq'
   get 'sign_up', to: 'users#new'
+  post '/sign_up', to: 'users#create'
   get 'log_in', to: 'sessions#new'
+  post 'log_in', to: 'sessions#create'
 
 
 end
