@@ -1,0 +1,9 @@
+<p>Sign up</p>
+
+<%= form_for :user do |f| %>
+Name: <%= f.text_field :name %><br>
+Email: <%= f.text_field :email %><br>
+Password: <%= f.password_field :password_digest %><br>
+Confirm password: <%= f.password_field :password_digest %><br>
+<%= f.submit "Submit" %>
+<% end %>
