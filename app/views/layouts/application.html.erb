@@ -1,16 +1,40 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title> <%= yield(:title) %> | Quilt-A-Long App</title>
+        <title> <%= yield(:title) %> | Quilt-A-Long App</title>
 
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
   </head>
-
   <body>
-    <%= yield %>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <%# <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> %>
+        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <a class="navbar-brand" href="<%= sign_up_url %>"/>Sign Up</a>
+        <a class="navbar-brand" href="<%= log_in_url %>"/>Log In</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="container"  role="main">
+      <%= yield %>
+    </div>
   </body>
 </html>
