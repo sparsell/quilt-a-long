@@ -5,6 +5,6 @@ Style TODOs:
 [x] move logo attribution to footer (can I use it w/out attribution right below the icon?) 
 [] add attribution link: hyperlinked to original source or use: thenounproject.com  
 [] remove/hide nav bar on home page
-[] Get FAQ, About and www.charliepops.com links to work properly
-[] Spacing of footer contents (centering attribution)
+[x] Get FAQ, About and charlie pops IG links to work properly
+[] Spacing of footer contents (centering attribution, padding on R, L)
 
