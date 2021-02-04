@@ -39,10 +39,10 @@ textarea {
 
 .center {
     text-align: center;
-}
 
-.center h1 {
-    margin-bottom: 10px;
+    h1 {
+        margin-bottom: 10px;
+    }
 }
 
 h1 {
@@ -70,26 +70,21 @@ footer {
     padding-top: 5px;
     border: 1px, solid #eaeaea;
     color: #878;
-}
-
-footer a {
+    a {
     color: #555;
+    &:hover {
+        color: #222;
+    }
 }
-
-footer a:hover {
-    color: #222;
-}
-
-footer small {
-    float: left;
-}
-
-footer ul {
-    float: right;
-    list-style: none;
-}
-
-footer ul li {
-    float: left;
-    margin-left: 1em;
+    small {
+        float: left;
+    }
+    ul {
+        float: right;
+        list-style: none;
+        li {
+        float: left;
+        margin-left: 1em;
+        }
+    }   
 }

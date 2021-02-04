@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/sign_up', to: 'users#create'
   get 'log_in', to: 'sessions#new'
   post 'log_in', to: 'sessions#create'
+
+  resources :users
 end
 
 # use nested routes to better express the relationship between models:
