@@ -9,6 +9,18 @@ Rails.application.routes.draw do
   post '/sign_up', to: 'users#create'
   get 'log_in', to: 'sessions#new'
   post 'log_in', to: 'sessions#create'
-
-
 end
+
+# use nested routes to better express the relationship between models:
+# class Post < ActiveRecord::Base
+#   has_many :comments
+# end
+
+# class Comment < ActiveRecord::Base
+#   belongs_to :post
+# end
+
+# # routes.rb
+# resources :posts do
+#   resources :comments
+# end
