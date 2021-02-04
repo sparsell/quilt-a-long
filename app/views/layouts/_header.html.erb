@@ -1,11 +1,12 @@
-<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-        
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <a class="navbar-brand" href="<%= sign_up_url %>"/>Sign Up</a>
-        <a class="navbar-brand" href="<%= log_in_url %>"/>Log In</a>
-        
-        </div>
-      </div>
+<header class="navbar navbar-inverse navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Quilt-A-Long", '#', id: "logo" %>
+        <nav>
+            <ul class="navbar navbar-nav navbar-right">
+                <li class="navbar-brand"> <%= link_to "Home", root_path %></li>
+                <li class="navbar-brand"> <%= link_to "Sign Up", signup_path %></li>
+                <li class="navbar-brand"> <%= link_to "Log In", login_path %></li>
+            </ul>
+        </nav>
     </div>
+</header>
