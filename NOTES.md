@@ -8,3 +8,4 @@ Style TODOs:
 [x] Get FAQ, About and charlie pops IG links to work properly
 [] Spacing of footer contents (centering attribution, padding on R, L)
 
+[] if logged in? show navigation that can look at quilters and QALs (not signup/login)
