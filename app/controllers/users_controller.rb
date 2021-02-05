@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
 
     def new
+        @user = User.new
     end
 
     def create
-        
         if params[:user][:password] == params[:user][:password_confirmation]
-            binding.pry
             @user = User.create(user_params)
             session[:user_id] = @user.id
             redirect_to user_path(@user)
@@ -17,6 +16,10 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
+    end
+
+    def index
+        @users = User.all
     end
 
     private
