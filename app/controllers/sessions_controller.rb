@@ -4,16 +4,19 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if params[:name].nil? || params[:name].empty?
-          redirect_to '/login'
-        else
-          session[:name] = params[:name]
-          redirect_to '/'
-        end
+      user = User.find_by(email: params[:user][:email])
+      if user && user.authenticate(params[:user][:password])
+            session[:user_id] = user.id
+          redirect_to user_path(user)
+          else
+            flash[:message] = "Incorrect login. Please try again." 
+            redirect_to '/login'
+          end
       end
     
       def destroy
-        session.delete :name
+        session.clear
+        redirect_to root_path
       end
 
 end

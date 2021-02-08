@@ -6,7 +6,7 @@
         <h4>Company Name<h4>
         <h4>Quilting Style</h4>
 
-        <button> <%= link_to "Edit my information", edit_user_path %> </button>
+        <button> <%= link_to "Edit my profile" %> </button>
     </aside>
 
     <section>
@@ -14,8 +14,19 @@
 
             
 
-        <button> <%= link_to "Add a new Quilt-A-Long", new_qal_path %> </button>
+        <button> <%= link_to "Create a new Quilt-A-Long", new_qal_path %> </button>
     </section>
+    <br>
+
+
+    <%= button_to 'Logout', logout_path, method: 'delete' %>
+
+     <%= link_to "Log out", logout_path, method: "delete" %><br>
+
+  
+  
+
+   
 
     
 

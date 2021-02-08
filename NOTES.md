@@ -1,3 +1,7 @@
+Error messages:
+[] Incorrect login
+[] 
+
 Associations:
     Does a quilter have many QALs or belongs to many? (They can have more than one)
 
@@ -11,10 +15,4 @@ Style TODOs:
 [] if logged in? show navigation that can look at quilters and QALs (not signup/login)
 
 Nav:
-<nav>
-            <ul class="navbar navbar-nav navbar-right">
-                <li class="navbar-brand"> <%= link_to "Home", root_path %></li>
-                <li class="navbar-brand"> <%= link_to "Sign Up", signup_path %></li>
-                <li class="navbar-brand"> <%= link_to "Log In", login_path %></li>
-            </ul>
-        </nav>
+

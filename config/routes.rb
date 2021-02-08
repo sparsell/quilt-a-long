@@ -7,12 +7,26 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
 
+  #sign up routes
   get 'signup', to: 'users#new'
-  post '/signup', to: 'users#create'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
+  post 'signup', to: 'users#create'
 
-  resources :sessions, only: [:new, :create, :destroy]
+  controller :sessions do
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+end
+
+  #log in routes
+  # get 'login', to: 'sessions#new'
+  # post 'login', to: 'sessions#create'
+
+  #logout
+  # delete 'logout', to: 'sessions#destroy'
+
+
+
+  # resources :sessions, only: [:new, :create, :destroy]
 
   resources :users, only: [:new, :create, :show, :index, :update]
 

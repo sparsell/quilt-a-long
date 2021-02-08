@@ -1,6 +1,16 @@
 <header class="navbar navbar-inverse navbar-fixed-top">
     <div class="nav-container">
       <%= link_to "Quilt-A-Long",root_path, id: "logo" %>
-        
     </div>
+
+    <nav>
+        <% if logged_in? %>
+            <ul class="navbar navbar-nav navbar-right">
+                <li class="navbar-brand"> <%= link_to "Home", root_path %></li>
+                <li class="navbar-brand"> <%= link_to "Sign Up", signup_path %></li>
+                <li class="navbar-brand"> <%= link_to "Log In", login_path %></li>
+                <li class="navbar-brand"> <%= link_to "Log Out", logout_path %></li>
+            </ul>
+            <% end %>
+        </nav>
 </header>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    
 
     def new
         @user = User.new
@@ -7,14 +8,17 @@ class UsersController < ApplicationController
     def create
         if params[:user][:password] == params[:user][:password_confirmation]
             @user = User.create(user_params)
+            
             session[:user_id] = @user.id
             redirect_to user_path(@user)
+        
         else
             redirect_to '/'
         end
     end
 
     def show
+        require_login
         @user = User.find_by(id: params[:id])
     end
 
