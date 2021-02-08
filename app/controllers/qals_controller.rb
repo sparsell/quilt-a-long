@@ -6,8 +6,8 @@ class QalsController < ApplicationController
     end
 
     def create
-        
-        @qal = Qal.create(qal_params)
+        #need to associate qal with user
+        @qal = current_user.qals.build(qal_params)
         if @qal 
             redirect_to qal_path(@qal)
         else

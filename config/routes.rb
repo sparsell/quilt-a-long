@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :users, only: [:new, :create, :show, :index]
+  resources :users, only: [:new, :create, :show, :index, :update]
 
   resources :qals, only: [:new, :create, :show, :index]
  

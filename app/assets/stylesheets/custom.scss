@@ -10,9 +10,10 @@
     text-transform: uppercase;
     letter-spacing: -1px;
     padding-top: 9px;
-    font-weight: bold;
+    padding-left: 1em;
+    // font-weight: bold;
     &:hover {
-        color: lightseagreen;
+        color: lightgray;
         text-decoration: none;
     }
 }
@@ -42,7 +43,16 @@ section {
 }
 
 .container {
-    background-color: white;
+    background-color:white;
+}
+
+.navbar {
+background-color:lightseagreen;
+font-family: monospace;
+}
+
+.navbar-brand a {
+    color: black;
 }
 
 .jumbotron {
@@ -50,9 +60,6 @@ section {
     color: lightseagreen;
     font-size: 3em;
     font-family:monospace;
-}
-.navbar  {
-    background-color: white;
 }
 
 .btn {
@@ -95,19 +102,25 @@ p {
 
 li {
     list-style: none;
+    color: black;
 }
 
-footer {
+navbar-inverse .navbar-nav > li > a {
+    color: red;
+}
+
+.footer-nav {
     margin-top: 45px;
     padding-top: 5px;
     border: 1px, solid #eaeaea;
-    color: #878;
+    color: darkslategray;
+    background-color: lightseagreen;
     a {
-    color: #555;
+    color: black;
     &:hover {
-        color: #222;
+        color: black;
+        }
     }
-}
     small {
         float: left;
     }

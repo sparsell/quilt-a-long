@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_155415) do
+ActiveRecord::Schema.define(version: 2021_02_08_113152) do
 
   create_table "qals", force: :cascade do |t|
     t.string "qal_name"
     t.integer "start_date"
     t.integer "end_date"
+    t.integer "user_id"
   end
 
   create_table "quilters", force: :cascade do |t|
@@ -33,6 +34,8 @@ ActiveRecord::Schema.define(version: 2021_02_04_155415) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "company_name"
+    t.string "quilting_style"
   end
 
 end
