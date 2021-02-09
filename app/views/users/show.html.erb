@@ -2,24 +2,32 @@
 
 <h1> Hi, <%= @user.name %> </h1>
 
- <%#if profile info filled out, show it, 
- else, show link/button to edit page %>
+    <section>
+        <h3> About Me </h3>
+        <%= link_to "Edit", edit_user_path(@user) %>
+    </section>
 
-        <button> <%= link_to "My profile", user_path(@user) %> </button>
-
+        
     <section>
         <h3>My Quilt-A-Longs</h3>
-
-            
-
-        <button> <%= link_to "Create a new Quilt-A-Long", new_qal_path %> </button>
+            <% @qals.each do |qal| %>
+            <%= qal.qal_name %><br>
+            <%= qal.start_date %><br>
+            <%= qal.end_date %><br>
+        <% end %>
     </section>
-    <br>
+
+    <section>
+        <h3>My Quilters</h3>
+            <% @quilters.each do |q| %>
+            <%= q.quilter_name %><br>
+            
+        <% end %>
+    </section>
 
 
-    <%= button_to 'Logout', logout_path, method: 'delete' %>
 
-     <%= link_to "Log out", logout_path, method: "delete" %><br>
+
 
   
   

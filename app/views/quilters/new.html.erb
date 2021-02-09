@@ -1,1 +1,11 @@
 <% provide(:title, "Add a Quilter") %>
+
+<h1> Add a Quilter </h1>
+
+<%= form_for (@quilter) do |f| %>
+
+<%= f.label :quilter_name %>
+<%= f.text_field :quilter_name %>
+
+<%= f.submit "Create Quilter" %>
+<% end %>

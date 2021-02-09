@@ -6,18 +6,22 @@ class QalsController < ApplicationController
     end
 
     def create
-        #need to associate qal with user
         @qal = current_user.qals.build(qal_params)
-        if @qal 
-            redirect_to qal_path(@qal)
+        if @qal.save
+            redirect_to qals_path
         else
-            redirect_to new_qal_path
+            render :new
         end
     end
 
     def show
         @qal = Qal.find_by(id: params[:id])
     end
+
+    def index
+        @qals = Qal.all
+    end
+
 
     private
 

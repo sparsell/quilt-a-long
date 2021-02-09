@@ -1,5 +1,9 @@
-<% @qals.each do |qal| %>
-<%= qal.qal_name %>
-<%= qal.start_date %>
-<%= qal.end_date %>
+<h1> All QALs </h1>
+
+<% @qals.each do |q| %>
+    <div><br>
+    <%= q.qal_name %><br>
+    <%= q.start_date %><br>
+    <%= q.end_date %><br>
+    </div>
 <% end %>

@@ -11,17 +11,17 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
 
-  controller :sessions do
-    get 'login', to: 'sessions#new'
-    post 'login', to: 'sessions#create'
-    delete 'logout', to: 'sessions#destroy'
-end
+    controller :sessions do
+      get 'login', to: 'sessions#new'
+      post 'login', to: 'sessions#create'
+      delete 'logout', to: 'sessions#destroy'
+  end
 
-  resources :users, only: [:new, :create, :show, :index, :update]
+  get 'profile', to: 'users#show'
 
-  resources :qals, only: [:new, :create, :show, :index]
- 
-
+  resources :users
+  resources :qals
+  resources :quilters
 end
 
 # use nested routes to better express the relationship between models:

@@ -18,12 +18,24 @@ class UsersController < ApplicationController
     end
 
     def show
-        require_login
+        if params[:id]
         @user = User.find_by(id: params[:id])
+        else @user = current_user
+        end
+        @quilters = Quilter.all
+        @qals = Qal.all
     end
 
     def index
         @users = User.all
+    end
+
+    def edit
+        @user = User.find_by(id: params[:id])
+    end
+
+    def update
+
     end
 
     private

@@ -61,9 +61,15 @@ section {
     background-color:white;
 }
 
+.nav-header {
+    float: right;
+    padding-right: 1em;
+}
+
 .navbar {
 background-color:lightseagreen;
 font-family: monospace;
+// float: right;
 }
 
 .navbar-brand a {

@@ -1,0 +1,16 @@
+<h1> Edit your Profile </h1>
+
+<%= form_for(@user) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_area :name %><br>
+
+<%= f.label :company_name %>
+<%= f.text_area :company_name %><br>
+
+<%= f.label :quilting_style %>
+<%= f.text_area :quilting_style %><br>
+
+<%= f.submit "Update your Profile" %>
+
+<% end %>
