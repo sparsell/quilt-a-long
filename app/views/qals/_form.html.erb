@@ -1,0 +1,13 @@
+<%= form_for(@qal) do |f| %>
+
+<%= f.label :qal_name %>
+<%= f.text_field :qal_name %>
+<br>
+<%= f.label :start_date %>
+<%= f.date_field :start_date%>
+<br>
+<%= f.label :end_date %>
+<%= f.date_field :end_date %>
+<br>
+<%= f.submit "Create Quilt-A-Long" %>
+<% end%>

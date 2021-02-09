@@ -15,6 +15,7 @@ class QuiltersController < ApplicationController
 
     def show
         @quilter = Quilter.find_by(id: params[:id])
+        @qals = Qal.all
     end
 
     def index

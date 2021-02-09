@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_113152) do
+ActiveRecord::Schema.define(version: 2021_02_09_170137) do
 
   create_table "qals", force: :cascade do |t|
     t.string "qal_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_02_08_113152) do
 
   create_table "quilters", force: :cascade do |t|
     t.string "quilter_name"
+    t.integer "qal_id"
   end
 
   create_table "quilts", force: :cascade do |t|

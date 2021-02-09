@@ -2,27 +2,34 @@
 
 <h1> Hi, <%= @user.name %> </h1>
 
-    <section>
-        <h3> About Me </h3>
+    <section class="user-bio">
+        <h3> Company Name:  </h3>
+        <%= @user.company_name %>
+        <h3> Quilting Style: </h3>
+        <%= @user.quilting_style %><br>
+
         <%= link_to "Edit", edit_user_path(@user) %>
     </section>
 
         
-    <section>
+
+    <section class="user-qals">
         <h3>My Quilt-A-Longs</h3>
-            <% @qals.each do |qal| %>
-            <%= qal.qal_name %><br>
-            <%= qal.start_date %><br>
-            <%= qal.end_date %><br>
-        <% end %>
+                <% @qals.each do |qal| %>
+                <%= qal.qal_name %><br>
+                <%= qal.start_date %><br>
+                <%= qal.end_date %><br>
+                <% end %><br>
+            <%= link_to "Edit" %>
     </section>
 
-    <section>
+    <section class="user-quilters">
         <h3>My Quilters</h3>
             <% @quilters.each do |q| %>
-            <%= q.quilter_name %><br>
-            
-        <% end %>
+            <%= link_to q.quilter_name %><br>
+        <% end %><br>
+
+        <%= link_to "Edit" %>
     </section>
 
 

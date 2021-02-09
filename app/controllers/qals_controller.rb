@@ -22,6 +22,15 @@ class QalsController < ApplicationController
         @qals = Qal.all
     end
 
+    def edit
+        @qal = Qal.find_by(:id params[:id])
+    end
+
+    def update
+
+    end
+
+
 
     private
 
