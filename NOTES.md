@@ -1,6 +1,6 @@
 Error messages:
-[] Incorrect login
-[] 
+[] For incorrect login, etc.
+[] Use partial or other? 
 
 Associations:
     Does a quilter have many QALs or belongs to many? (They can have more than one)

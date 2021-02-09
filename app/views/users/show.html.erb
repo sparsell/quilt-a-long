@@ -1,13 +1,11 @@
-<% provide(:title, @user.name) %>
+
 
 <h1> Hi, <%= @user.name %> </h1>
 
-    <aside>
-        <h4>Company Name<h4>
-        <h4>Quilting Style</h4>
+ <%#if profile info filled out, show it, 
+ else, show link/button to edit page %>
 
-        <button> <%= link_to "Edit my profile" %> </button>
-    </aside>
+        <button> <%= link_to "My profile", user_path(@user) %> </button>
 
     <section>
         <h3>My Quilt-A-Longs</h3>

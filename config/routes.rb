@@ -17,17 +17,6 @@ Rails.application.routes.draw do
     delete 'logout', to: 'sessions#destroy'
 end
 
-  #log in routes
-  # get 'login', to: 'sessions#new'
-  # post 'login', to: 'sessions#create'
-
-  #logout
-  # delete 'logout', to: 'sessions#destroy'
-
-
-
-  # resources :sessions, only: [:new, :create, :destroy]
-
   resources :users, only: [:new, :create, :show, :index, :update]
 
   resources :qals, only: [:new, :create, :show, :index]
