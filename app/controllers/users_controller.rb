@@ -8,20 +8,20 @@ class UsersController < ApplicationController
     def create
         if params[:user][:password] == params[:user][:password_confirmation]
             @user = User.create(user_params)
-            
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
-        
+            redirect_to @user
         else
-            redirect_to '/'
+            render :new
         end
     end
 
     def show
-        if params[:id]
-        @user = User.find_by(id: params[:id])
-        else @user = current_user
-        end
+        # if params[:id]
+        # @user = User.find_by(id: params[:id])
+        # else @user = current_user
+        # end
+        # @user = User.find_by(id: params[:id])
+        @user = current_user
         @quilters = Quilter.all
         @qals = Qal.all
     end

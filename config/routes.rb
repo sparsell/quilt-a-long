@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       delete 'logout', to: 'sessions#destroy'
   end
 
-  get 'profile', to: 'users#show'
+  get '/profile', to: 'users#show'
 
   resources :users
   resources :qals

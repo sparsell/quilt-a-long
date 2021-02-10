@@ -6,8 +6,8 @@ class QuiltersController < ApplicationController
 
     def create
         @quilter = current_user.quilters.build(quilter_params)
-        if @quilter.save
-            redirect_to quilters_path
+        if @quilter.save 
+            redirect_to current_user
         else
             render :new
         end

@@ -8,7 +8,7 @@ class QalsController < ApplicationController
     def create
         @qal = current_user.qals.build(qal_params)
         if @qal.save
-            redirect_to qals_path
+            redirect_to current_user
         else
             render :new
         end
@@ -18,18 +18,22 @@ class QalsController < ApplicationController
         @qal = Qal.find_by(id: params[:id])
     end
 
-    def index
-        @qals = Qal.all
-    end
-
     def edit
-        @qal = Qal.find_by(:id params[:id])
+        @qal = Qal.find_by(id: params[:id])
     end
 
     def update
-
+        @qal = Qal.find(id: params[:id])
+        if @qal.update(qal_params)
+            redirect_to qal_path
+        else
+            render :edit
+        end
     end
 
+    def index
+        @qals = Qal.all
+    end
 
 
     private
