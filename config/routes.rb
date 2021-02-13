@@ -19,21 +19,13 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
 
+  get 'quilters/:id/quilts', to: 'quilters#quilts_index'
+get 'quilters/:id/quilts/:quilt_id', to: 'quilters#quilt'
+
   resources :users
   resources :qals
   resources :quilters
+  resources :quilts
+  resources :sponsors
 end
 
-# use nested routes to better express the relationship between models:
-# class Post < ActiveRecord::Base
-#   has_many :comments
-# end
-
-# class Comment < ActiveRecord::Base
-#   belongs_to :post
-# end
-
-# # routes.rb
-# resources :posts do
-#   resources :comments
-# end
