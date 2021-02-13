@@ -1,10 +1,17 @@
-<h1> All QALs </h1>
+<h1> Quilt-A-Longs </h1>
+
+<h4><%= link_to "Add a new Quilt-A-Long", new_qal_path %> </h4>
 
 <% @qals.each do |q| %>
-    <div><br>
-    <%= q.qal_name %><br>
-    <%= q.start_date %><br>
-    <%= q.end_date %><br>
-    <%= q.user_id %>
+    <div class="user-qals-detail"><br>
+    Name: <%= link_to q.qal_name, qal_path(q) %><br>
+    Start Date: <%= q.start_date %><br>
+    End Date: <%= q.end_date %><br>
+    Designer ID: <%= q.user_id%><br>
+    Designer Name:<br>
+    Quilters:<br>
+  
+    
     </div>
 <% end %>
+

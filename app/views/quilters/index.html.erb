@@ -1,7 +1,8 @@
-<h1> All Quilters </h1>
+<h1> Quilters </h1>
 
-<div>
+
 <% @quilters.each do |quilter| %><br>
-<%= quilter.quilter_name %>
-    <% end %>
+<div class="user-quilters-detail">
+<%= link_to quilter.quilter_name, quilter_path(quilter) %>
 </div>
+    <% end %>
