@@ -9,18 +9,14 @@ class UsersController < ApplicationController
         if params[:user][:password] == params[:user][:password_confirmation]
             @user = User.create(user_params)
             session[:user_id] = @user.id
-            redirect_to @user
+            redirect_to user_path
         else
+            flash[:message] = "That is not a valid signup. Please try again"
             render :new
         end
     end
 
     def show
-        # if params[:id]
-        # @user = User.find_by(id: params[:id])
-        # else @user = current_user
-        # end
-        # @user = User.find_by(id: params[:id])
         @user = current_user
         @quilters = Quilter.all
         @qals = Qal.all
