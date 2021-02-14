@@ -1,6 +1,7 @@
+<%= link_to "Add a Quilter", new_quilter_path %>
+<%= link_to "Add a Quilt", new_quilt_path %>
+
 <h1><%= @quilter.quilter_name %></h1>
 
-<h3> Quilt-A-Longs </h3>
-<% @qals.each do |qal| %>
-<%= qal.qal_name%><br>
+<h3> Participant in these Quilt-A-Longs </h3>
 <% end %>
