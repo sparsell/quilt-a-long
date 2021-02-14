@@ -1,18 +1,17 @@
 <h3> New Quilt </h3>
 
 <%= form_for (@quilt) do |f| %>
-<%= f.label :quilt_name %>
+<%= f.label "Quilt Name:" %>
 <%= f.text_field :quilt_name %>
 <br>
 <%= f.label "Is the quilt finished?" %>
-<%= f.check_box :is_finished %>
+<%= f.select :is_finished, [["Yes", true], ["No", false]], :include_blank => true %>
 <br>
-<%= f.label :quilter_id %>
-<%= f.check_box :is_finished %>
 <br>
-<%= f.select :quilter_id, @quilters.collect { |q| [q.quilter_name] } %>
+<%= f.label "Select Quilter:" %>
 
-<%= f.submit %>
+<%= f.select :quilter_id, @quilters.collect { |q| [q.quilter_name] } %>
+<%= f.submit%>
 
 <% end %>
 
