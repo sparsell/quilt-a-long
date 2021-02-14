@@ -10,7 +10,11 @@ class QuiltsController < ApplicationController
 
     def create
             @quilt = Quilt.create(quilt_params)
+            if @quilt.save
             redirect_to quilt_path(@quilt)
+            else
+                render :new
+            end
     end
 
     def show
@@ -20,7 +24,7 @@ class QuiltsController < ApplicationController
     private
 
         def quilt_params
-            params.require(:quilt).permit(:quilt_name) 
+            params.require(:quilt).permit(:quilt_name, :is_finished, :quilter_id) 
         end
 
 end

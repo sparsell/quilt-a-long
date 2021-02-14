@@ -33,6 +33,10 @@ class QalsController < ApplicationController
 
     def index
         @qals = Qal.all
+        @users = User.all
+        # @quilts = Quilts.all
+        # @quilters = Quilters.all
+
     end
 
 
