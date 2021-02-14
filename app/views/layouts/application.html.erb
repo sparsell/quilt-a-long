@@ -14,15 +14,27 @@
   <body>
   
     <%= render 'layouts/header' %>
-    
+   
 
     <!-- content -->
     <div class="container"  role="main">
+      <div>
+          <% if logged_in? %>
+              <p> Logged in as: <%= current_user.name %> </p>
+              <% else %>
+          <% end %>
+      </div>
+
+      <div>
+        <% if flash[:message] %>
+          <%= flash[:message] %>
+          <% end %>
+
       <%= yield %>
 
+      </div>
+      <%= render 'layouts/footer' %>
 
-    </div>
-    <%= render 'layouts/footer' %>
   </body>
 </html>
 
