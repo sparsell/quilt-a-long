@@ -9,33 +9,34 @@
         <%= @user.quilting_style %><br>
 
         <%= link_to "Edit", edit_user_path(@user) %>
-    </section>
-
-        
+    </section>       
 
     <section class="user-qals">
+      <%= link_to "View All | ", qals_path %>
+      <%= link_to "Add New", new_qal_path %>
         <h3>My Quilt-A-Longs</h3>
+       
             
                 <% @user.qals.each do |qal| %>
                 <div class="user-qals-detail">
-                <%= link_to qal.qal_name %><br>
+                <%= link_to qal.qal_name, qals_path %><br>
                 <%= qal.start_date %><br>
                 <%= qal.end_date %><br>
                  </div>
                 <% end %><br>
            
-          
-        <%= link_to "Add", new_qal_path %>
     </section>
 
     <section class="user-quilters">
+     <%= link_to "View All | ", quilters_path %>
+      <%= link_to "Add New", new_quilter_path %>
         <h3>My Quilters</h3>
             <% @user.quilters.each do |quilter| %>
             <%= quilter.quilter_name %>
              <% end %><br>
 
         
-        <%= link_to "Add", new_quilter_path %>
+      
     </section>
 
 
