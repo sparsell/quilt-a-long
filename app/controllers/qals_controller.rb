@@ -23,6 +23,7 @@ class QalsController < ApplicationController
     end
 
     def update
+        # binding.pry
         @qal = Qal.find(id: params[:id])
         if @qal.update(qal_params)
             redirect_to qal_path
