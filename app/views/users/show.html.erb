@@ -1,4 +1,4 @@
-
+<% provide(:title, 'User')%>
 
 <h1> Hi, <%= @user.name %> </h1>
 
@@ -19,7 +19,7 @@
             
                 <% @user.qals.each do |qal| %>
                 <div class="user-qals-detail">
-                <%= link_to qal.qal_name, qals_path %><br>
+                <%= link_to qal.qal_name, qal_path(qal) %><br>
                 <%= qal.start_date %><br>
                 <%= qal.end_date %><br>
                  </div>
