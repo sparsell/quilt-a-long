@@ -9,7 +9,7 @@ class QuiltersController < ApplicationController
         # binding.pry
         @quilter = current_user.quilters.build(quilter_params)
         if @quilter.save 
-            redirect_to current_user
+            redirect_to quilter_path(@quilter)
         else
             render :new
         end
@@ -17,7 +17,7 @@ class QuiltersController < ApplicationController
 
     def show
         @quilter = Quilter.find_by(id: params[:id])
-        @qals = Qal.all
+      
     end
 
     def index

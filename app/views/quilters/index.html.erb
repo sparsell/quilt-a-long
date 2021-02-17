@@ -3,9 +3,9 @@
 
 <% @quilters.each do |quilter| %><br>
 <div class="user-quilters-detail">
-<%= link_to quilter.quilter_name, quilter_path(quilter) %>
-<p>Quilt-A-Longs:</p>
+    <%= link_to quilter.quilter_name, quilter_path(quilter) %>
+    <p>Quilt-A-Longs:</p>
 
-<p>Finished quilts:</p>
+    <p>Finished quilts:</p>
 </div>
     <% end %>
