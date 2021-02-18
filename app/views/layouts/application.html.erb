@@ -27,8 +27,8 @@
 
       <div>
         <% if flash[:message] %>
-          <%= flash[:message] %>
-          <% end %>
+          <div class="warning"><%= flash[:message] %>
+          <% end %></div>
 
       <%= yield %>
 
