@@ -3,4 +3,9 @@
 <%= @qal.start_date %><br>
 <%= @qal.end_date %><br>
 <br>
-<%= link_to "Edit", edit_qal_path(@qal)%>
+
+<% if current_user.id == @qal.user_id %>
+    <%= link_to "Edit", edit_qal_path(@qal)%>
+    <%= link_to "Delete", method: :delete %>
+    <% end %>
+    
