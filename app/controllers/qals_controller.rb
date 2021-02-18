@@ -1,5 +1,5 @@
 class QalsController < ApplicationController
-    # before_action :require_login
+    before_action :require_login
     
     def new
         @qal = Qal.new
@@ -24,12 +24,19 @@ class QalsController < ApplicationController
 
     def update
         # binding.pry
-        @qal = Qal.find(id: params[:id])
+        @qal = Qal.find_by(id: params[:id])
         if @qal.update(qal_params)
             redirect_to qal_path
         else
             render :edit
         end
+    end
+
+    def destroy
+        @qal = Qal.find(params[:id])
+        binding.pry
+        @qal.destroy
+        redirect_to qals_path
     end
 
     def index

@@ -1,4 +1,5 @@
 class QuiltersController < ApplicationController
+    before_action :require_login
 
     def new
         @quilter = Quilter.new
