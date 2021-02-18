@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :logged_in_user, only: [:edit, :update]
+    before_action :require_login, except: [:new, :create]
 
     def new
         @user = User.new
@@ -7,20 +7,21 @@ class UsersController < ApplicationController
 
     def create
         # binding.pry
-        if params[:user][:password] == params[:user][:password_confirmation]
-            @user = User.create(user_params)
+        @user = User.new(user_params)
+        if params[:user][:password] == params[:user][:password_confirmation] && @user.save
             session[:user_id] = @user.id
-            redirect_to login_path
+            redirect_to user_path(@user)
         else
-            flash[:message] = "That is not a valid signup. Please try again"
-            render :new
+            flash[:message] = "That was not a valid signup attempt. Please try again"
+            redirect_to signup_path
         end
     end
 
     def show
         @user = current_user
-        @quilters = Quilter.all
-        @qals = Qal.all
+        @qals = current_user.qals.all
+        # @quilters = current_user.qals.quilters.all
+        
     end
 
     def index
@@ -46,11 +47,11 @@ class UsersController < ApplicationController
             params.require(:user).permit(:name, :email, :password, :password_confirmation, :company_name, :quilting_style)
         end
 
-        def logged_in_user 
-            unless logged_in?
-                flash[:message] = "Please log in."
-                redirect_to login_url
-            end
-        end
+        # def logged_in_user 
+        #     unless logged_in?
+        #         flash[:message] = "Please log in."
+        #         redirect_to login_url
+        #     end
+        # end
 
 end
