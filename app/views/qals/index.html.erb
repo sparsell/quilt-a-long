@@ -4,7 +4,7 @@
 
 <% @qals.each do |q| %>
     <div class="user-qals-detail"><br>
-    Name: <%= link_to q.qal_name, qal_path(q) %><br>
+    <%= link_to q.qal_name, qal_path(q) %><br>
     Start Date: <%= q.start_date %><br>
     End Date: <%= q.end_date %><br>
     Designer ID: <%= q.user_id%><br>

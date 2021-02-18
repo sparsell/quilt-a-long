@@ -1,9 +1,4 @@
 <% provide(:title, "All Users") %>
 
-<div>
-<% @users.each do |user| %>
-    <ul class="users">
-        <li><%= user.name %></li>
-    </ul>
-<% end %>
-</div>
+ <%= render @users %>
+
