@@ -18,6 +18,16 @@
     }
 }
 
+// Messages
+
+.warning {
+    background-color: palegoldenrod;
+    border: 1px solid palevioletred;
+    color: gray;
+    padding: 1em;
+    margin: 2em;
+  }
+
 //  Forms
 
 input, textarea, select {
@@ -104,7 +114,7 @@ textarea {
 h1 {
     font-size: 3em;
     letter-spacing: -2px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-align: center;
 }
 h2 {
@@ -130,35 +140,59 @@ navbar-inverse .navbar-nav > li > a {
     color: red;
 }
 
-.user-bio {
+
+// Users
+
+.users {
+    list-style: none;
     border: .3em grey solid;
-    padding: 2em;
     margin: 1em;
+    padding: 2em;
+}
+.user-bio {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-bottom: .3em grey solid;
+    padding: 1em;
+    margin: 1em;
+    h4 {
+        color: lightseagreen;
+    }
 }
 
 .user-qals {
-    border: .3em grey solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: lightseagreen;
+    border-bottom: .3em grey solid;
     margin: 1em;
     padding: 2em;
 }
 
 .user-qals-detail {
-    border: .1em grey solid;
-    background-color: mintcream;
+    display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // border-bottom: .1em grey solid;
+    // background-color: lightgrey;
+    color: lightseagreen;
     padding: 1em;
-    margin: 2em;
+    margin: 1em;
 }
 
 .user-quilters {
-    border: .3em grey solid;
+    // border: .3em grey solid;
+    color: lightseagreen;
     margin: 1em;
-    padding: 2em;
+    padding: 1em;
 }
 
 .user-quilters-detail {
     border: .3em grey solid;
     margin: 1em;
-    padding: 2em;
+    padding: 1em;
 }
 
 .footer-nav {
