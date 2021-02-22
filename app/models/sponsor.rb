@@ -1,5 +1,5 @@
 class Sponsor < ApplicationRecord
 
-    has_many :qals
-    has_many :users, through: :qals
+    has_many :prizes
+    has_many :qals, through: :prizes
 end
