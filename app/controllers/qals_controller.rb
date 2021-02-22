@@ -8,7 +8,7 @@ class QalsController < ApplicationController
     def create
         @qal = current_user.qals.build(qal_params)
         if @qal.save
-            redirect_to current_user
+            redirect_to qal_path(@qal)
         else
             render :new
         end
@@ -23,7 +23,7 @@ class QalsController < ApplicationController
     end
 
     def update
-        # binding.pry
+        @qals = Qal.all
         @qal = Qal.find_by(id: params[:id])
         if @qal.update(qal_params)
             redirect_to qal_path
@@ -34,24 +34,21 @@ class QalsController < ApplicationController
 
     def destroy
         @qal = Qal.find(params[:id])
-        binding.pry
+        # binding.pry
         @qal.destroy
-        redirect_to qals_path
+        redirect_to current_user
     end
 
     def index
         @qals = Qal.all
         @users = User.all
-        # @quilts = Quilts.all
-        # @quilters = Quilters.all
-
     end
 
 
     private
 
     def qal_params
-        params.require(:qal).permit(:qal_name, :start_date, :end_date)
+        params.require(:qal).permit(:qal_name, :start_date, :end_date, :quilting_style, :skill_level)
     end
 
 end
