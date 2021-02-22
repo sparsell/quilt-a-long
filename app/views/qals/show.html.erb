@@ -1,11 +1,19 @@
 
 <%= @qal.qal_name %><br>
-<%= @qal.start_date %><br>
-<%= @qal.end_date %><br>
+<br>
+Start date: <%= @qal.start_date %><br>
+End date: <%= @qal.end_date %><br>
 <br>
 
+Skill level: <%= @qal.skill_level %> <br>
+Quilt style: <%= @qal.quilting_style %><br>
+<br>
+
+
 <% if current_user.id == @qal.user_id %>
-    <%= link_to "Edit", edit_qal_path(@qal)%>
-    <%= link_to "Delete", method: :delete %>
+    <%= link_to "Edit | ", edit_qal_path(@qal)%>
+    <%= link_to "Delete | ", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %>
+    <%= link_to "Profile", current_user %>
+
     <% end %>
     

@@ -2,6 +2,7 @@ class QuiltsController < ApplicationController
     before_action :require_login
 
     def index
+        @quilts = Quilt.all
     end
 
     def new
