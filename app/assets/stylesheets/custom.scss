@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// *= require bootstrap-datepicker3
 
 // header
 #logo {
@@ -16,6 +17,12 @@
         color: lightgray;
         text-decoration: none;
     }
+}
+
+.logged-in-as {
+    font-size: .7em;
+    padding: .5em;
+    margin: .5em;
 }
 
 // Messages
@@ -150,9 +157,9 @@ navbar-inverse .navbar-nav > li > a {
     padding: 2em;
 }
 .user-bio {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: nowrap;
     border-bottom: .3em grey solid;
     padding: 1em;
     margin: 1em;
@@ -162,24 +169,24 @@ navbar-inverse .navbar-nav > li > a {
 }
 
 .user-qals {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
     color: lightseagreen;
     border-bottom: .3em grey solid;
-    margin: 1em;
-    padding: 2em;
+    margin: .5em;
+    padding: .5em;
 }
 
 .user-qals-detail {
-    display: flex;
+    // display: flex;
     // flex-direction: row;
     // flex-wrap: wrap;
     // border-bottom: .1em grey solid;
     // background-color: lightgrey;
     color: lightseagreen;
-    padding: 1em;
-    margin: 1em;
+    padding: .25em;
+    margin: .25em;
 }
 
 .user-quilters {
@@ -190,9 +197,10 @@ navbar-inverse .navbar-nav > li > a {
 }
 
 .user-quilters-detail {
-    border: .3em grey solid;
-    margin: 1em;
-    padding: 1em;
+    // border: .3em grey solid;
+    font-size: 1em;
+    margin: .35em;
+    padding: .25em;
 }
 
 .footer-nav {
