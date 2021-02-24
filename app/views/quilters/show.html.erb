@@ -3,6 +3,9 @@
 
 <h1><%= @quilter.quilter_name %></h1>
 
-<h4> Quilt-A-Longs </h4>
+<%= link_to "Edit", edit_quilter_path(@quilter) %>
+<br>
+<h4> My Quilt-A-Long: <%= link_to @quilter.qal_name, qal_path %> </h4>
 
-<h4> Quilts </h4>
+<br>
+<h4> My Quilts: </h4>

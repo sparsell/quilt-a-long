@@ -3,12 +3,11 @@ class QuiltersController < ApplicationController
 
     def new
         @quilter = Quilter.new
-        @quilters = Quilter.all
+        # @quilters = Quilter.all
     end
 
     def create
-        # binding.pry
-        @quilter = current_user.quilters.build(quilter_params)
+        @quilter = Quilter.create(quilter_params)
         if @quilter.save 
             redirect_to quilter_path(@quilter)
         else
@@ -20,6 +19,21 @@ class QuiltersController < ApplicationController
         @quilter = Quilter.find_by(id: params[:id])
       
     end
+
+    def edit
+        @quilter = Quilter.find_by(id: params[:id])
+    end
+
+    def update
+        @quilters = Quilter.all
+        @quilter = Quilter.find_by(id: params[:id])
+        if @quilter.update(quilter_params)
+            redirect_to quilter_path
+        else
+            render :edit
+        end    
+    end
+
 
     def index
         @quilters = Quilter.all 
@@ -40,7 +54,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            params.require(:quilter).permit(:quilter_name)
+            params.require(:quilter).permit(:quilter_name, :qal_name)
         end
 
 end

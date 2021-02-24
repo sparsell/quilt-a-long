@@ -4,8 +4,22 @@
 
 <%= form_for (@quilter) do |f| %>
 
-<%= f.label :quilter_name %>
-<%= f.text_field :quilter_name %>
+    <%= f.label :quilter_name %>
+    <%= f.text_field :quilter_name %>
+    <br>
+    <%= f.label "My Quilt-A-Long" %>
+    <%= f.collection_select :qal_name, Qal.all, :qal_name, :qal_name %>
+ 
+    <br>
+
+    <%= f.label "Add a Quilt:" %>
+    <%= f.fields_for :quilts, @quilter  do |quilt_field|%>
+
+    <% end %>
+   
+    <br>
 
 <%= f.submit "Create Quilter" %>
+
+<br>
 <% end %>

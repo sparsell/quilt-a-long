@@ -1,0 +1,15 @@
+<%= form_for (@quilter) do |f| %>
+
+<%= f.label :quilter_name %>
+<%= f.text_field :quilter_name %>
+<br>
+<%= f.label "My Quilt-A-Long" %>
+    <%= f.collection_select :qal_name, Qal.all, :qal_name, :qal_name %>
+ 
+    <br>
+
+    <%= f.label "Add a Quilt:" %>
+   <br>
+
+<%= f.submit "Update Quilter" %>
+<% end %>
