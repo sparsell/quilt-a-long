@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_184623) do
+ActiveRecord::Schema.define(version: 2021_02_24_111618) do
 
   create_table "prizes", force: :cascade do |t|
     t.string "prize_name"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_184623) do
 
   create_table "qals", force: :cascade do |t|
     t.string "qal_name"
-    t.integer "start_date"
-    t.integer "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer "user_id"
     t.string "quilting_style"
     t.string "skill_level"
