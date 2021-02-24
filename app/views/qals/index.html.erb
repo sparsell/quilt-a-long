@@ -3,20 +3,9 @@
 <%= link_to "Add New | ", new_qal_path %> 
 <%= link_to "My Profile", current_user %> 
 
-<% @qals.each do |q| %>
-    <div class="user-qals-detail"><br>
-    <%= link_to q.qal_name, qal_path(q) %><br>
-    Start Date: <%= q.start_date %><br>
-    End Date: <%= q.end_date %><br>
-    Designer ID: <%= q.user_id%><br>
-    Quilt Style: <%= q.quilting_style %><br>
-    Skill Level: <%= q.skill_level %><br>
-    Designer Name:<br>
-    Quilters:<br>
-    Sponsors:<br>
-    Prizes:<br>
-  
-    
-    </div>
-<% end %>
-
+    <% @qals.each do |q| %>
+        <div class="user-qals-detail"><br>
+            <%= link_to q.qal_name, qal_path(q) %><br>
+        </div>
+    <% end %>
+   

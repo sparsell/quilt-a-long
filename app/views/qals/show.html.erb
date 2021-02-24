@@ -8,7 +8,15 @@ End date: <%= @qal.end_date %><br>
 Skill level: <%= @qal.skill_level %> <br>
 Quilt style: <%= @qal.quilting_style %><br>
 <br>
+Designer: <%= @qal.user.company_name%><br>
 
+Quilters: <%= @qal.quilters.each do |quilter| %>
+    <%= link_to quilter.quilter_name %>
+    <% end %><br>
+
+Sponsored by: <%= %><br>
+First Prize: <%= %>
+<br>
 
 <% if current_user.id == @qal.user_id %>
     <%= link_to "Edit | ", edit_qal_path(@qal)%>
