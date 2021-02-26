@@ -34,7 +34,6 @@ class QalsController < ApplicationController
 
     def destroy
         @qal = Qal.find(params[:id])
-        # binding.pry
         @qal.destroy
         redirect_to current_user
     end
