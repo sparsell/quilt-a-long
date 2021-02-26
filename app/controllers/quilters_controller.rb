@@ -3,11 +3,11 @@ class QuiltersController < ApplicationController
 
     def new
         @quilter = Quilter.new
-        # @quilters = Quilter.all
     end
 
     def create
-        @quilter = Quilter.create(quilter_params)
+        @quilter = Quilter.new(quilter_params)
+        # binding.pry
         if @quilter.save 
             redirect_to quilter_path(@quilter)
         else
@@ -25,36 +25,39 @@ class QuiltersController < ApplicationController
     end
 
     def update
-        @quilters = Quilter.all
         @quilter = Quilter.find_by(id: params[:id])
         if @quilter.update(quilter_params)
-            redirect_to quilter_path
+            flash[:message] = "Successfully updated Quilt-A-Long"
+            redirect_to quilter_path(@quilter)
         else
             render :edit
         end    
     end
 
+    # def update
+    #     @qal = Qal.find_by(id: params[:id])
+    #     if @qal.update(qal_params)
+    #         redirect_to qal_path(@qal)
+    #     else
+    #         render :edit
+    #     end
+    # end
 
     def index
         @quilters = Quilter.all 
+        @qals = Qal.all
     end
 
-    def quilts_index
+    def destroy
         @quilter = Quilter.find(params[:id])
-        @quilts = @quilter.quilts
-        render template: 'quilts/index'
-      end
-     
-      def quilt
-        @quilter = Quilter.find(params[:id])
-        @quilt = Quilt.find(params[:quilt_id])
-        render template: 'quilts/show'
-      end
+        @quilter.destroy
+            redirect_to quilters_path
+    end
 
     private
 
         def quilter_params
-            params.require(:quilter).permit(:quilter_name, :qal_name)
+            params.require(:quilter).permit(:quilter_name, :qal_name, quilts: [])
         end
 
 end

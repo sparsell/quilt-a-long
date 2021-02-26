@@ -7,18 +7,18 @@
     <%= f.label :quilter_name %>
     <%= f.text_field :quilter_name %>
     <br>
-    <%= f.label "My Quilt-A-Long" %>
+    <%= f.label "Quilt-A-Long" %>
     <%= f.collection_select :qal_name, Qal.all, :qal_name, :qal_name %>
- 
     <br>
+    <div>
+        <%= f.label "Add a Quilt:" %>
+        <input type="text" name="quilter[quilts][]" id="quilt_1"><br>
+        <br>
+        <%= f.label "Is it Finished?" %>
+    </div>
 
-    <%= f.label "Add a Quilt:" %>
-    <%= f.fields_for :quilts, @quilter  do |quilt_field|%>
-
-    <% end %>
-   
     <br>
-
+    <br>
 <%= f.submit "Create Quilter" %>
 
 <br>

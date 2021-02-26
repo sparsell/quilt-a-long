@@ -3,9 +3,10 @@
 
 <h1><%= @quilter.quilter_name %></h1>
 
-<%= link_to "Edit", edit_quilter_path(@quilter) %>
+<%= link_to "Edit | ", edit_quilter_path(@quilter) %>
+ <%= link_to "Delete", quilter_path(@quilter), method: :delete, data: { confirm: "Are you sure?" }  %>
 <br>
-<h4> My Quilt-A-Long: <%= link_to @quilter.qal_name, qal_path %> </h4>
+<h4> My Quilt-A-Long: <%= @quilter.qal_name %> </h4>
 
 <br>
-<h4> My Quilts: </h4>
+<h4> My Quilts: <%= link_to @quilter.quilts, quilt_path %> </h4>
