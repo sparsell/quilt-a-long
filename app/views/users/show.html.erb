@@ -5,14 +5,16 @@
         <section class="user-bio">
             <% if current_user.id == @user.id %>
             <%= link_to "Edit | ", edit_user_path(@user) %>
-            <%= link_to "Delete", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }  %>
+            <%= link_to "Delete", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }  %><br>
         <% end %>
 
     
         <h4> Company Name:  </h4>
-            <h5><%= @user.company_name %></h5>
+            <h5><%= @user.company_name %></h5><br>
         <h4> Quilting Style: </h4>
             <h5><%= @user.quilting_style %></h5><br>
+            <h4> Number of Quilt-A-Longs: </h4>
+            <h5><%= @user.qals.size %></h5><br>
 
         
     </section>    
@@ -31,12 +33,7 @@
            
     </section>
 
-    <section class="user-quilters">
-     <%= link_to "View All | ", quilters_path %>
-      <%= link_to "Add New", new_quilter_path %>
-        <h3>My Sponsors</h3>
 
-    </section>
 
 
 
