@@ -6,16 +6,12 @@
 
     <%= f.label :quilter_name %>
     <%= f.text_field :quilter_name %>
-   
-    <div>
-        <%= f.label "Add a Quilt:" %><br>
-        <%= f.fields_for :quilt do |build| %>
-            <%= build.label :quilt_name %>
-            <%= build.text_field :quilt_name %
-            <br>
-            <%= build.label "Is it finished?" %>
-            <%= build.check_box :is_finished %>
+   <br>
+   <%= f.label :qal_name %>
+    <%= f.collection_check_boxes :qal_ids, @qals, :id, :qal_name do |q| %>
+        <%= q.qal_id %>
         <% end %>
-    </div>
+
+
     <%= f.submit "Create Quilter" %>
 <% end %>
