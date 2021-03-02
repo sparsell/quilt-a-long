@@ -19,13 +19,18 @@
 <%= f.label "Quilt Style" %>
 <%= f.select :quilting_style, options_for_select([['Modern', 'Modern'], ['Traditional', 'Traditional']]) %>
 <br>
-
+<br>
+<br>
+<br>
 <%= f.label "Add Quilters" %><br>
-<%= f.fields_for :quilters do |f|%>
-        <%= f.label :quilter_name %>
-        <%= f.collection_select :quilter_name, Quilter.all, :quilter_name, :quilter_name %>
+<%= f.fields_for :quilters do |build_quilter|%>
+        <%= build_quilter.label :quilter_name %>
+        <%= build_quilter.collection_check_boxes :quilter_ids, Quilter.all, :id, :quilter_name do |q| %>
+        <%= q.check_box %>
+        <%= q.label %>
+        <% end %>
     <% end%>
-    <br>
+
     <%= link_to "Add New Quilter", new_quilter_path %>
 <br>
 <br>

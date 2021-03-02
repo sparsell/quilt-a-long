@@ -2,7 +2,9 @@ class QalsController < ApplicationController
     before_action :require_login
     
     def new
+        @quilters = Quilter.all
         @qal = Qal.new
+        #has_many associations:
         @qal.quilters.build
         @qal.sponsors.build
         @qal.prizes.build
@@ -10,7 +12,6 @@ class QalsController < ApplicationController
 
     def create
         @qal = current_user.qals.create(qal_params)
-        
         if @qal.save
             redirect_to qal_path(@qal)
         else

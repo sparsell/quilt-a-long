@@ -3,11 +3,13 @@ class QuiltersController < ApplicationController
 
     def new
         @quilter = Quilter.new
-        @quilter.quilts.build
+        @qals = Qal.all
+      
     end
 
     def create
-        @quilter = Quilter.new(quilter_params)
+        @quilter = Quilter.create(quilter_params)
+        # binding.pry
         if @quilter.save 
             redirect_to @quilter
         else
@@ -48,7 +50,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            params.require(:quilter).permit(:quilter_name, quilts_attributes: [:id, :quilt_name, :is_finished])
+            params.require(:quilter).permit(:quilter_name)
         end
 
 end
