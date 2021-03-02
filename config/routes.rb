@@ -27,5 +27,6 @@ get 'quilters/:id/quilts/:quilt_id', to: 'quilters#quilt'
   resources :quilters
   resources :quilts
   resources :sponsors
+  resources :prizes
 end
 
