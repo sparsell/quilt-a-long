@@ -3,10 +3,14 @@ class QalsController < ApplicationController
     
     def new
         @qal = Qal.new
+        @qal.quilters.build
+        @qal.sponsors.build
+        @qal.prizes.build
     end
 
     def create
-        @qal = current_user.qals.build(qal_params)
+        @qal = current_user.qals.create(qal_params)
+        
         if @qal.save
             redirect_to qal_path(@qal)
         else
@@ -47,7 +51,7 @@ class QalsController < ApplicationController
     private
 
     def qal_params
-        params.require(:qal).permit(:qal_name, :start_date, :end_date, :quilting_style, :skill_level)
+        params.require(:qal).permit(:qal_name, :start_date, :end_date, :quilting_style, :skill_level, quilters_attributes: [:id, :quilter_name], prizes_attributes: [:id, :prize_name])
     end
 
 end

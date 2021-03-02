@@ -20,10 +20,17 @@
 <%= f.select :quilting_style, options_for_select([['Modern', 'Modern'], ['Traditional', 'Traditional']]) %>
 <br>
 
-<%= f.label "Quilters" %><br>
-<%= f.label "Sponsors" %><br>
-<%= f.label "First Prize" %><br>
+<%= f.label "Add Quilters" %><br>
+<%= f.fields_for :quilters do |f|%>
+        <%= f.label :quilter_name %>
+        <%= f.collection_select :quilter_name, Quilter.all, :quilter_name, :quilter_name %>
+    <% end%>
+    <br>
+    <%= link_to "Add New Quilter", new_quilter_path %>
+<br>
+<br>
 
+<br>
 <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
 <% end%>

@@ -3,13 +3,13 @@ class QuiltersController < ApplicationController
 
     def new
         @quilter = Quilter.new
+        @quilter.quilts.build
     end
 
     def create
         @quilter = Quilter.new(quilter_params)
-        # binding.pry
         if @quilter.save 
-            redirect_to quilter_path(@quilter)
+            redirect_to @quilter
         else
             render :new
         end
@@ -34,15 +34,6 @@ class QuiltersController < ApplicationController
         end    
     end
 
-    # def update
-    #     @qal = Qal.find_by(id: params[:id])
-    #     if @qal.update(qal_params)
-    #         redirect_to qal_path(@qal)
-    #     else
-    #         render :edit
-    #     end
-    # end
-
     def index
         @quilters = Quilter.all 
         @qals = Qal.all
@@ -57,7 +48,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            params.require(:quilter).permit(:quilter_name, :qal_name, quilts: [])
+            params.require(:quilter).permit(:quilter_name, quilts_attributes: [:id, :quilt_name, :is_finished])
         end
 
 end
