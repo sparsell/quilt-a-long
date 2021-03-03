@@ -22,15 +22,12 @@
 <br>
 <br>
 <br>
+        <%= f.label :quilter_name %>
+        <%= f.collection_check_boxes :quilter_ids, Quilter.all, :id, :quilter_name %>
+
 <%= f.label "Add Quilters" %><br>
 <%= f.fields_for :quilters do |build_quilter|%>
-        <%= build_quilter.label :quilter_name %>
-        <%= build_quilter.collection_check_boxes :quilter_ids, Quilter.all, :id, :quilter_name do |q| %>
-        <%= q.check_box %>
-        <%= q.label %>
-        <% end %>
-    <% end%>
-
+<% end %>
     <%= link_to "Add New Quilter", new_quilter_path %>
 <br>
 <br>
