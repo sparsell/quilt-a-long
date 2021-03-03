@@ -19,14 +19,16 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
 
-  get 'quilters/:id/quilts', to: 'quilters#quilts_index'
-get 'quilters/:id/quilts/:quilt_id', to: 'quilters#quilt'
-
   resources :users
   resources :qals
-  resources :quilters
-  resources :quilts
   resources :sponsors
   resources :prizes
+
+  resources :quilters do 
+    resources :quilts
+    #paths to quilts resources will always have a quilter ID in them
+  end
+
+ 
 end
 
