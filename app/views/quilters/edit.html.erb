@@ -4,7 +4,7 @@
 <%= f.text_field :quilter_name %>
 <br>
 <%= f.label "My Quilt-A-Long" %>
-    <%= f.collection_select :qal_name, Qal.all, :qal_name, :qal_name %>
+<%= f.collection_select :qal_id, Qal.all, :qal_name, :qal_name %>
  
     <br>
 

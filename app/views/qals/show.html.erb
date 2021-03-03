@@ -14,7 +14,7 @@
 </div>
 
 <div>
-    <p class="qal_label">Quilters: <%= @qal.quilters.each do |quilter| %>
+    <p class="qal_label">Quilters: <% @qal.quilters.each do |quilter| %>
         <ul>
             <li><%= link_to quilter.quilter_name, quilter_path(quilter) %></li>
         </ul>

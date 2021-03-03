@@ -7,10 +7,7 @@
     <%= f.label :quilter_name %>
     <%= f.text_field :quilter_name %>
    <br>
-   <%= f.label :qal_name %>
-    <%= f.collection_check_boxes :qal_ids, @qals, :id, :qal_name do |q| %>
-        <%= q.qal_id %>
-        <% end %>
+  
 
 
     <%= f.submit "Create Quilter" %>
