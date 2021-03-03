@@ -1,8 +1,8 @@
 class Qal < ApplicationRecord
 
-    belongs_to :user, foreign_key: "user_id"
+    belongs_to :user
     has_many :quilters
-    # has_many :quilts
+    has_many :quilts
     has_many :prizes 
     has_many :sponsors, through: :prizes
 
