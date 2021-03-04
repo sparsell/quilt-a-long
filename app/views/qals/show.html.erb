@@ -2,7 +2,7 @@
 <h1><%= @qal.qal_name %></h1>
 
 <div>
-    <p class="qal_label">Brought to you by: <%= @qal.user.company_name%></p>
+    <p class="qal_label">Designer: <%= @qal.user.company_name%></p>
 </div>
 
 <div>
@@ -20,15 +20,21 @@
         </ul>
         <% end %><br>
 
-    <p class="qal_label">Prizes: <%= %></p><br>
+    <p class="qal_label">Prizes: <% @qal.prizes.each do |prize| %></p>
+        <ul>
+            <li><%= link_to prize.prize_name, prize_path(prize) %></li>
+        </ul>
+        <% end %>
 
-    <p class="qal_label">Sponsored by: <%= %></p><br>
 </div>
 
+
+<footer>
 <% if current_user.id == @qal.user_id %>
     <%= link_to "Edit | ", edit_qal_path(@qal)%>
     <%= link_to "Delete | ", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %>
     <%= link_to "Profile", current_user %>
+</footer>
 
     <% end %>
     
