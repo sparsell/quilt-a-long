@@ -4,12 +4,12 @@ class QuiltersController < ApplicationController
     def new
         @quilter = Quilter.new
         @qals = Qal.all
+        @quilter.quilts.build
       
     end
 
     def create
         @quilter = Quilter.create(quilter_params)
-        # binding.pry
         if @quilter.save 
             redirect_to @quilter
         else
@@ -29,7 +29,7 @@ class QuiltersController < ApplicationController
     def update
         @quilter = Quilter.find_by(id: params[:id])
         if @quilter.update(quilter_params)
-            flash[:message] = "Successfully updated Quilt-A-Long"
+            flash[:message] = "Successfully updated Quilter"
             redirect_to quilter_path(@quilter)
         else
             render :edit
@@ -50,7 +50,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            params.require(:quilter).permit(:quilter_name)
+            params.require(:quilter).permit(:quilter_name, :qal_id, quilts_attributes: [:id, :quilt_name, :is_finsihed])
         end
 
 end

@@ -2,17 +2,17 @@
 <%= link_to "My Profile", current_user %>
 
 <h1><%= @quilter.quilter_name %></h1>
+<div>
+    <h4> My Quilt-A-Long: <%= @quilter.qal_id %> </h4>
 
-<br>
-<h4> My Quilt-A-Long: <%= @quilter.qal_id %> </h4>
+    <h4> My Quilts: <%= @quilter.quilts.each do |q| %>
+        <ul>
+            <li><p><%= q.quilt_name %></p></li>
+        </ul>
+        <% end %>
+</div>
 
-
-<br>
-
-<h4> My Quilts: <% @quilter.quilts.each do |q| %>
-<%= q.quilt_name %>
-<% end %>
-<br>
-<br>
-<br>
+<div>
+<%= link_to "Edit | ", edit_quilter_path(@quilter) %>
  <%= link_to "Delete", quilter_path(@quilter), method: :delete, data: { confirm: "Are you sure?" }  %>
+ </div>

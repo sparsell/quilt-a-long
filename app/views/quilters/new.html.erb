@@ -7,8 +7,13 @@
     <%= f.label :quilter_name %>
     <%= f.text_field :quilter_name %>
    <br>
+
+   <%= fields_for :quilts do |quilt_builder|%>
+        <%= quilt_builder.label :quilt_name %>
+        <p><%= quilt_builder.text_field :quilt_name %></p>
+        <%= quilt_builder.label :is_finished, "Is it finished?" %>
+        <%= quilt_builder.check_box :is_finished %>
+        <% end%>
   
-
-
     <%= f.submit "Create Quilter" %>
 <% end %>
