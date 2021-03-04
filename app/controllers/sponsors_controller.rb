@@ -15,7 +15,7 @@ class SponsorsController < ApplicationController
     end
 
     def create
-        @sponsor = Sponsor.create(sponsor_params)
+        # @sponsor = Sponsor.create(sponsor_params)
     end
 
     private 

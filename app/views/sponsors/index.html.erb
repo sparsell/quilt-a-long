@@ -1,3 +1,7 @@
-<% @sponsors.each do |s| %>
-<%= s.sponsor_name %>
-<% end %>
+<div>
+    <% @sponsors.each do |s| %>
+    <ul>
+        <li><%= s.sponsor_name %></li>
+    </ul>
+    <% end %>
+</div>
