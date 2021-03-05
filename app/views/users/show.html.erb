@@ -3,11 +3,6 @@
 <h1> Hi, <%= @user.name %> </h1>
 
         <section class="user-bio">
-            <% if current_user.id == @user.id %>
-            <%= link_to "Edit | ", edit_user_path(@user) %>
-            <%= link_to "Delete", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }  %><br>
-        <% end %>
-
     
         <h4> Company Name:  </h4>
             <h5><%= @user.company_name %></h5><br>
@@ -16,6 +11,9 @@
             <h4> Number of Quilt-A-Longs: </h4>
             <h5><%= @user.qals.size %></h5><br>
 
+             <% if current_user.id == @user.id %>
+            <%= link_to "Edit Profile ", edit_user_path(@user) %>
+        <% end %>
         
     </section>    
 
