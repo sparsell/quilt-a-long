@@ -2,10 +2,32 @@
 
 <%= link_to "Add New | ", new_qal_path %> 
 <%= link_to "My Profile", current_user %> 
+<br>
 
-    <% @qals.each do |q| %>
-        <div class="user-qals-detail"><br>
-            <%= link_to q.qal_name, qal_path(q) %><br>
-        </div>
-    <% end %>
+    <table>
+        <thead>
+            <tr>
+              <th> Name </th>
+              <th> Start Date </th>
+              <th> End Date </th>
+              <%# <th> <th> Want to show "Edit | Delete" options if current_user is owner %> 
+            </tr>
+        </thead>
+        <tbody>
+            <% @qals.each do |q| %>
+            <tr>
+                <td><%= link_to q.qal_name, qal_path(q) %></td>
+                <td> <%= q.start_date %></td>
+                <td><%= q.end_date %></td> 
+                <% if current_user.id == q.user_id %> 
+                <td> 
+                    <%= link_to "Edit | ", edit_qal_path(q)%>
+                    <%= link_to "Delete | ", qal_path(q), method: :delete, data: { confirm: "Are you sure?" }  %> 
+                </td>
+                    <% end %>
+                
+            </tr>
+              <% end %>
+        </tbody>
+    </table>
    
