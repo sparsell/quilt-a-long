@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
 
+  #omniauth - github  
+  get '/auth/github', to: 'sessions#github'
+
+  #omniauth - google
+  get '/auth/google_oauth2', to: 'sessions#google'
+
+
     controller :sessions do
       get 'login', to: 'sessions#new'
       post 'login', to: 'sessions#create'
@@ -29,6 +36,6 @@ Rails.application.routes.draw do
     #paths to quilts resources will always have a quilter ID in them
   end
 
+  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
  
 end
-
