@@ -13,9 +13,10 @@ Rails.application.routes.draw do
 
   #omniauth - github  
   get '/auth/github', to: 'sessions#github'
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
   #omniauth - google
-  get '/auth/google_oauth2', to: 'sessions#google'
+  get '/auth/:provider/callback', to: 'sessions#google'
 
 
     controller :sessions do

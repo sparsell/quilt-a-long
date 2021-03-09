@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth-github'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-google-oauth2'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -41,8 +44,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
-  gem 'omniauth'
-  gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+  
 end
 
 group :development do

@@ -15,12 +15,10 @@ class SessionsController < ApplicationController
             render :new
           end
       end    
-          # pp request.env['omniauth.auth']
-          # session[:name] = request.env['omniauth.auth']['info']['name']
-          # redirect_to root_path
-    
-      def google
-        user = User.create_from_omniauth(auth)
+
+
+      def github
+        user = User.find_or_create_from_github(auth)
           if user.valid?
               session[:user_id] = user.id
               redirect_to user
@@ -29,17 +27,20 @@ class SessionsController < ApplicationController
           end
       end
 
-      def github
-        binding.pry
-        user = User.create_from_github(auth)
-        
-          if user.valid?
-              session[:user_id] = user.id
-              redirect_to user
-          else
-            render :new
-          end
+      def google
+        # binding.pry
+        @user = User.find_or_create_by(email: auth[:info][:email]) do |user|
+          user.name = auth[:info][:name]
+          user.password = SecureRandom.hex(12)
+        end
+    
+        if @user.save
+          redirect_to user_path(@user)
+        else
+          redirect_to '/'
+        end
       end
+      
 
       def destroy
         # session.clear
