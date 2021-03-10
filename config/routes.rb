@@ -11,13 +11,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
 
-  #omniauth - github  
-  get '/auth/github', to: 'sessions#github'
+  #omniauth route
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-
-  #omniauth - google
-  get '/auth/:provider/callback', to: 'sessions#google'
-
 
     controller :sessions do
       get 'login', to: 'sessions#new'
