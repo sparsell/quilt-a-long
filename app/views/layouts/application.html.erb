@@ -20,7 +20,7 @@
     <div class="container"  role="main">
       <div>
           <% if logged_in? %>
-              <p> Logged in as: <%= current_user.name %> </p>
+              <p class="logged-in-id"> Logged in as: <%= current_user.name %> </p>
               <% else %>
           <% end %>
       </div>
