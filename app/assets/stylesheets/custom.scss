@@ -65,6 +65,11 @@ input, textarea, select {
 
 input {
      height: auto !important;
+    //  width: 10%;
+}
+
+select {
+    width:15%;
 }
 
 #error_explanation {
@@ -127,7 +132,11 @@ font-family: monospace;
 }
 
 .btn-sm {
-    background-color: lightgray;
+    background-color: lightsalmon;
+    // padding: .25em;
+    margin: .25em;
+    font-size: .75em;
+    
 }
 
 
@@ -172,8 +181,19 @@ navbar-inverse .navbar-nav > li > a {
     color: red;
 }
 
+.nav-links {
+    margin: 2em;
+    border: 1px solid orange;
+    background:mediumspringgreen;
+    // color: mediumspringgreen;
+}
 
 // Users
+
+aside {
+    float: left;
+    border: solid 1px grey;
+}
 
 .users {
     list-style: none;
@@ -182,12 +202,14 @@ navbar-inverse .navbar-nav > li > a {
     padding: 2em;
 }
 .user-bio {
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: nowrap;
-    border-bottom: .3em grey solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: solid 1px grey;
+    // border-bottom: .3em grey solid;
     padding: 1em;
     margin: 1em;
+    
     h4 {
         color: lightseagreen;
     }
@@ -202,8 +224,8 @@ navbar-inverse .navbar-nav > li > a {
     // flex-direction: column;
     // flex-wrap: wrap;
     color: lightseagreen;
-    border-bottom: .3em grey solid;
-    margin: .5em;
+    // border-bottom: .3em grey solid;
+    margin: 2em;
     padding: .5em;
 }
 
@@ -234,6 +256,10 @@ navbar-inverse .navbar-nav > li > a {
 
 // QALs
 
+.qal-label {
+    color: lightseagreen;
+
+}
 
 //  Footer
 

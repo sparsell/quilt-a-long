@@ -43,7 +43,7 @@
         <%= f.collection_check_boxes :quilter_ids, Quilter.all, :id, :quilter_name %>
     </div>
 <div>
-    <h4><%= f.label "Add a New Quilter:" %></h4>
+    <h4><%= f.label "Or Add a New Quilter:" %></h4>
         <%= f.fields_for :quilters do |build_quilter|%>
             <p><%= build_quilter.label :quilter_name %></p>
             <p><%= build_quilter.text_field :quilter_name %></p>
@@ -56,7 +56,7 @@
         <%= f.collection_check_boxes :prize_ids, Prize.all, :id, :prize_name %>
     </div>
 <div>
-    <h4><%= f.label "Add a New Prize:" %></h4>
+    <h4><%= f.label "Or Add a New Prize:" %></h4>
         <%= f.fields_for :prizes do |build_prize|%>
             <p><%= build_prize.label :prize_name %></p>
             <p><%= build_prize.text_field :prize_name %></p>

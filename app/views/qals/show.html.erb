@@ -2,15 +2,15 @@
 <h1><%= @qal.qal_name %></h1>
 
 <div>
-    <p class="qal_label">Designer: <%= @qal.user.company_name%></p>
+    <p class="qal-label">Designer: <%= @qal.user.company_name%></p>
 </div>
 
 <div>
-    <p class="qal_label"> Start date: <%= @qal.start_date %></p>
-    <p class="qal_label"> End date: <%= @qal.end_date %></p>
+    <p class="qal-label"> Start date: <%= @qal.start_date %></p>
+    <p class="qal-label"> End date: <%= @qal.end_date %></p>
 
-    <p class="qal_label">Skill level: <%= @qal.skill_level %></p>
-    <p class="qal_label">Quilt style: <%= @qal.quilting_style %></p>
+    <p class="qal-label">Skill level: <%= @qal.skill_level %></p>
+    <p class="qal-label">Quilt style: <%= @qal.quilting_style %></p>
 </div>
 
 <div>
@@ -20,7 +20,7 @@
         </ul>
         <% end %><br>
 
-    <p class="qal_label">Prizes: <% @qal.prizes.each do |prize| %></p>
+    <p class="qal-label">Prizes: <% @qal.prizes.each do |prize| %></p>
         <ul>
             <li><%= link_to prize.prize_name, prize_path(prize) %></li>
         </ul>
@@ -31,10 +31,18 @@
 
 <footer>
 <% if current_user.id == @qal.user_id %>
-    <%= link_to "Edit | ", edit_qal_path(@qal)%>
-    <%= link_to "Delete | ", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %>
-    <%= link_to "Profile", current_user %>
+    <section class="btn btn-sm">
+            <%= link_to "Edit", edit_qal_path(@qal)%>
+    </section>
+    <section class="btn btn-sm">
+        <%= link_to "Delete", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %>
+    </section>
+    <section class="btn btn-sm">
+        <%= link_to "My Profile", current_user %>
+        </section>
 </footer>
 
     <% end %>
+
+    
     

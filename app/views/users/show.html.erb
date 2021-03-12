@@ -2,34 +2,42 @@
 
 <h1> Hi, <%= @user.name %> </h1>
 
-        <section class="user-bio">
+        <aside class="user-bio">
     
-        <h4> Company Name:  </h4>
-            <h5><%= @user.company_name %></h5><br>
-        <h4> Quilting Style: </h4>
-            <h5><%= @user.quilting_style %></h5><br>
+            <h4> Company Name:  </h4>
+                <h5><%= @user.company_name %></h5><br>
+            <h4> Quilting Style: </h4>
+                <h5><%= @user.quilting_style %></h5><br>
             <h4> Number of Quilt-A-Longs: </h4>
-            <h5><%= @user.qals.size %></h5><br>
+                <h5><%= @user.qals.size %></h5><br>
 
              <% if current_user.id == @user.id %>
-            <%= link_to "Edit Profile ", edit_user_path(@user) %>
-        <% end %>
-        
-    </section>    
+                <section class="btn btn-sm">
+                    <%= link_to "Edit Profile ", edit_user_path(@user) %>
+                    <% end %>
+                </section>
+        </aside>    
 
-    <section class="user-qals">
-        <%= link_to "View All | ", qals_path %>
-        <%= link_to "Add New", new_qal_path %>
+    
 
-        <h3>My Quilt-A-Longs</h3>
-            
-            <% @qals.each do |qal| %>
+        <section class="user-qals">
+            <h4>My Quilt-A-Longs</h4>
+                <% @qals.each do |qal| %>
                 <div class="user-qals-detail">
                     <%= link_to qal.qal_name, qal_path(qal) %><br>
                 </div>
-            <% end %><br>
-           
-    </section>
+                    <% end %><br>
+            <section class="btn btn-sm">
+                <%= link_to "View All", qals_path %>
+            </section>
+
+            <section class="btn btn-sm">
+                <%= link_to "Add New", new_qal_path %>
+            </section>
+
+        </section>
+
+        
 
 
 
