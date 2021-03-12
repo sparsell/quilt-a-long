@@ -1,17 +1,42 @@
 <h1> Quilters </h1>
 
-<%= link_to "Add New", new_quilter_path %>
+    <section class="btn btn-sm">
+        <%= link_to "Add New", new_quilter_path %>
+    </section>
 
-<% @quilters.each do |quilter| %><br>
-<div class="user-quilters-detail">
-    <%= link_to quilter.quilter_name, quilter_path(quilter) %>
-    <p>Quilt-A-Long:</p>
-        <%= quilter.qal_id %>
+    <table class="table">
 
-    <p>Finished quilts:</p>
-    <% quilter.quilts.each do |quilt| %>
-    <%= quilt.quilt_name %>
-    
-    <% end %>
-    </div>
-    <% end %>
+        <thead>
+            <tr>
+              <th> Name </th>
+              <th> Quilt-A-Long </th>
+              <th> Quilt Name </th>
+               <th> Finished? </th>
+               <th> Actions </th>
+              <tr> </tr>
+        </thead>
+
+        <tbody>
+            <% @quilters.each do |q| %>
+            <tr>
+                <td><%= q.quilter_name %></td>
+                <td> <%= q.qal_id %></td>
+                <td>
+                    <p>Finished quilts:</p>
+                    <% q.quilts.each do |quilt| %>
+                    <%= quilt.quilt_name %>
+                     <% end %>
+                </td>
+                <td> 
+                    <section class="btn btn-sm">
+                        <%= link_to "Edit", edit_quilter_path(q) %>
+                    </section>
+                    <section class="btn btn-sm">
+                        <%= link_to "Delete", quilter_path(q), method: :delete, data: { confirm: "Are you sure?" }  %>
+                    </section>
+                </td>
+            </tr>
+              <% end %>
+        </tbody>
+    </table>
+
