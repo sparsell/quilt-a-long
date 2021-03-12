@@ -1,10 +1,13 @@
 <h1> Quilt-A-Longs </h1>
 
-<%= link_to "Add New | ", new_qal_path %> 
-<%= link_to "My Profile", current_user %> 
-<br>
+<div class="btn btn-sm">
+<%= link_to "Add New", new_qal_path %>
+</div>
+<div class="btn btn-sm">
+<%= link_to "My Profile", current_user %>
+</div>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
               <th> Name </th>
@@ -20,8 +23,15 @@
                 <td><%= q.end_date %></td> 
                 <% if current_user.id == q.user_id %> 
                 <td> 
-                    <%= link_to "Edit | ", edit_qal_path(q)%>
-                    <%= link_to "Delete | ", qal_path(q), method: :delete, data: { confirm: "Are you sure?" }  %> 
+                    <section class="btn btn-sm">
+                        <%= link_to "Edit", edit_qal_path(q)%>
+                    </section>
+
+                    <section class="btn btn-sm">
+                  <%= link_to "Delete", qal_path(q), method: :delete, data: { confirm: "Are you sure?" }  %> 
+                    </section>
+                    
+                    
                 </td>
                     <% end %>
                 
