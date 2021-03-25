@@ -15,8 +15,34 @@ class SponsorsController < ApplicationController
     end
 
     def create
-        # @sponsor = Sponsor.create(sponsor_params)
+        @sponsor = Sponsor.create(sponsor_params)
+        if @sponsor.save
+            redirect_to sponsor_path(@sponsor)
+        else
+            render :new
+        end
     end
+
+    def edit
+        @sponsor = Sponsor.find_by(id: params[:id])
+    end
+
+    def update
+        @sponsor = Sponsor.find_by(id: params[:id])
+        @sponsor.update(sponsor_params)
+        if @sponsor.save
+        redirect_to sponsor_path(@sponsor)
+        else  
+            render :edit
+        end
+    end
+
+    def destroy
+        @sponsor = Sponsor.find(params[:id])
+        @sponsor.delete
+        redirect_to sponsors_path
+    end
+
 
     private 
 

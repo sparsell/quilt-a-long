@@ -1,7 +1,45 @@
-<div>
-    <% @sponsors.each do |s| %>
-    <ul>
-        <li><%= s.sponsor_name %></li>
-    </ul>
-    <% end %>
-</div>
+<h1> Sponsors </h1>
+
+    <p class="btn btn-sm"><%= link_to "Add New", new_sponsor_path %></p>
+
+    <table class="table">
+        <thead>
+            <tr>
+              <th> Name </th>
+              <th> Quilt-A-Longs </th>
+              <th> Prizes </th>
+              <th>  </th>
+
+             </tr>
+        </thead>
+
+        <tbody>
+            <% @sponsors.each do |s| %>
+            <tr>
+                <td><%= s.sponsor_name %></td>
+
+                <%# Sponsor has_many QALs through Prizes: %>
+                <td>  
+
+                </td>
+               
+
+                <%# Sponsor has_many Prizes: %>
+                 <td>
+                      
+                </td>
+                
+
+                <td> 
+                    <p class="btn btn-sm"><%= link_to "Add a Prize", new_prize_path %></p>
+                    <p class="btn btn-sm"><%= link_to "Edit", edit_sponsor_path(s) %></p>
+                    <p class="btn btn-sm"><%= link_to "Delete", sponsor_path(s), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+                </td>
+            </tr>
+              <% end %>
+        </tbody>
+    </table>
+
+
+
+    
