@@ -31,9 +31,6 @@ Rails.application.routes.draw do
 
   resources :quilters do 
     resources :quilts
-    #paths to quilts resources will always have a quilter ID in them
   end
 
-  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
- 
 end
