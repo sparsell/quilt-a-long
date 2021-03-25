@@ -3,13 +3,13 @@ class QalsController < ApplicationController
     
     def new
         @qal = Qal.new
-        @quilters = Quilter.all
-        @sponsors = Sponsor.all
-        @prizes = Prize.all
+        # @quilters = Quilter.all
+        # @sponsors = Sponsor.all
+        # @prizes = Prize.all
         #has_many associations:
-        @qal.quilters.build
-        @qal.prizes.build
-        @qal.sponsors.build
+        # @qal.quilters.build
+        # @qal.prizes.build
+        # @qal.sponsors.build
     end
 
     def create
@@ -54,7 +54,8 @@ class QalsController < ApplicationController
     private
 
     def qal_params
-        params.require(:qal).permit(:qal_name, :start_date, :end_date, :quilting_style, :skill_level, quilter_ids:[], prize_ids:[], quilters_attributes: [:id, :quilter_name], prizes_attributes: [:id, :prize_name])
+        # params.require(:qal).permit(:qal_name, :start_date, :end_date, :quilting_style, :skill_level, quilter_ids:[], prize_ids:[], quilters_attributes: [:id, :quilter_name], prizes_attributes: [:id, :prize_name])
+        params.require(:qal).permit(:qal_name, :start_date, :end_date, :quilting_style, :skill_level)
        
     end
 

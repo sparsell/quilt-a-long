@@ -19,6 +19,11 @@
             <li><%= link_to quilter.quilter_name, quilter_path(quilter) %></li>
         </ul>
         <% end %><br>
+        <% if current_user.id == @qal.user_id %>
+    <p class="btn btn-sm">
+            <%= link_to "Add a Quilter", new_quilter_path(@quilter)%>
+    </p>
+    <% end %>
 
     <p class="qal-label">Prizes: <% @qal.prizes.each do |prize| %></p>
         <ul>
@@ -26,20 +31,37 @@
         </ul>
         <% end %>
 
+        <% if current_user.id == @qal.user_id %>
+    <p class="btn btn-sm">
+            <%= link_to "Add a Prize", new_prize_path(@prize)%>
+    </p>
+    <% end %>
+
+    <p class="qal-label">Prizes: <% @qal.prizes.each do |prize| %></p>
+        <ul>
+            <li><%= link_to prize.prize_name, prize_path(prize) %></li>
+        </ul>
+        <% end %>
+    <% if current_user.id == @qal.user_id %>
+    <p class="btn btn-sm">
+            <%= link_to "Add a Sponsor", new_sponsor_path(@sponsor)%>
+    </p>
+    <% end %>
+
 </div>
 
 
 <footer>
 <% if current_user.id == @qal.user_id %>
-    <section class="btn btn-sm">
+    <p class="btn btn-sm">
             <%= link_to "Edit", edit_qal_path(@qal)%>
-    </section>
-    <section class="btn btn-sm">
+    </p>
+    <p class="btn btn-sm">
         <%= link_to "Delete", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %>
-    </section>
-    <section class="btn btn-sm">
+    </p>
+    <p class="btn btn-sm">
         <%= link_to "My Profile", current_user %>
-        </section>
+        </p>
 </footer>
 
     <% end %>
