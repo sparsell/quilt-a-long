@@ -7,6 +7,8 @@ class Qal < ApplicationRecord
     has_many :sponsors, through: :prizes
 
     accepts_nested_attributes_for :quilters 
+    accepts_nested_attributes_for :quilts
     accepts_nested_attributes_for :prizes
+    accepts_nested_attributes_for :sponsors
 
 end
