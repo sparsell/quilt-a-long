@@ -1,16 +1,8 @@
 <h2>Add a Prize </h2>
 
 <%= form_for @prize do |f| %>
-<div>
     <%= f.label :prize_name %>
     <%= f.text_field :prize_name %>
-</div>
-<div>
-    <%= f.fields_for :sponsors do |build| %>
-    <%= build.label :sponsor_name %>
-    <%= build.text_field :sponsor_name %>
-    </div>
-    <% end %>
 
     <%= f.submit "Create New Prize" %>
     <% end %>

@@ -8,12 +8,12 @@ class PrizesController < ApplicationController
     end
 
     def new
-        # @prize = Prize.new
+        @prize = Prize.new
         # @qals = Qal.all
     end
 
     def create
-        @prize = Prize.create(params: prize_params)
+        @prize = Prize.create(prize_params)
     end
 
 end
