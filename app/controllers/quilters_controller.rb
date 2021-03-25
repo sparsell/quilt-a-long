@@ -9,10 +9,13 @@ class QuiltersController < ApplicationController
     end
 
     def create
-        @quilter = Quilter.create(quilter_params)
-        if @quilter.save 
+        @quilter = Quilter.new(quilter_params)
+    
+        if @quilter.save
+            # binding.pry
             redirect_to @quilter
         else
+            binding.pry
             render :new
         end
     end
@@ -39,6 +42,7 @@ class QuiltersController < ApplicationController
     def index
         @quilters = Quilter.all 
         @qals = Qal.all
+        @quilts = Quilt.all
     end
 
     def destroy
@@ -50,7 +54,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            params.require(:quilter).permit(:quilter_name, :qal_id, quilts_attributes: [:id, :quilt_name, :is_finsihed])
+            params.require(:quilter).permit(:quilter_name, :qal_id, quilts_attributes: [:quilt_name, :is_finished])
         end
 
 end

@@ -8,11 +8,11 @@
     <br>
 
 <%= f.label "Add a Quilt" %>
-    <%= fields_for :quilts do |quilt_builder|%>
+    <%= f.fields_for :quilts do |quilt_builder|%>
         <%= quilt_builder.label :quilt_name %>
         <p><%= quilt_builder.text_field :quilt_name %></p>
-        <%= quilt_builder.label :is_finished, "Is it finished?" %>
-        <%= quilt_builder.check_box :is_finished %>
+        <p><%= quilt_builder.label "Is it Finished?" %>
+        <%= quilt_builder.select :is_finished, options_for_select([['Yes', 'Yes'], ['No', 'No']]) %></p>
         <% end%>
   
 

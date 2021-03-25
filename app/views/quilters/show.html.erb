@@ -8,12 +8,10 @@
 
 <h1><%= @quilter.quilter_name %></h1>
 <div>
-    <h4> My Quilt-A-Long: <%= @quilter.qal_id %> </h4>
+    <h4> My Quilt-A-Long: <%= @quilter.qal.qal_name %> </h4>
 
-    <h4> My Quilts: <%= @quilter.quilts.each do |q| %>
-        <ul>
+    <h4> My Quilts: <% @quilter.quilts.each do |q| %>
             <li><p><%= q.quilt_name %></p></li>
-        </ul>
         <% end %>
 </div>
 
