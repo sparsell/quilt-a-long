@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :qals
   resources :sponsors
   resources :prizes
+  resources :quilts
 
   resources :quilters do 
     resources :quilts

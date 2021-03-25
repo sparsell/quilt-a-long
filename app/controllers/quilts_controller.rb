@@ -2,19 +2,22 @@ class QuiltsController < ApplicationController
     before_action :require_login
 
     def index
-        @quilts = Quilt.all
+        # @quilts = Quilt.all
+        @quilts = @quilter.quilts
     end
 
     def new
         @quilt = Quilt.new
         @quilters = Quilter.all
+        @qals = Qal.all
+        # @quilt = @quilter.quilt.build
     end
 
     def create
             @quilter = Quilter.find_by(id: params[:id])
-            @quilt = @quilter.quilts.build(quilt_params)
+            @quilt = @quilter.build(quilt_params)
             if @quilt.save
-            redirect_to quilter_path(@quilter)
+            redirect_to quilter_quilts_path(@quilter)
             else
                 render :new
             end
