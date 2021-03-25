@@ -14,8 +14,11 @@
             <li><p><%= q.quilt_name %></p></li>
         <% end %>
 </div>
+<div>        
+    <p class="btn btn-sm"><%= link_to "Edit", edit_quilter_path(@quilter) %></p>
+    <p class="btn btn-sm"><%= link_to "Delete", quilter_path(@quilter), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+    
 
-<div>
-<%= link_to "Edit | ", edit_quilter_path(@quilter) %>
- <%= link_to "Delete", quilter_path(@quilter), method: :delete, data: { confirm: "Are you sure?" }  %>
  </div>
+
+ 

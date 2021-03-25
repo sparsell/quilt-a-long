@@ -11,19 +11,7 @@
      <p><%= f.label :qal_id, "QAL" %>
         <%= f.collection_select :qal_id, Qal.all, :id, :qal_name %></p>
 
-<%# has_many %>
-    <div class="new-quilt">
-   <%= f.fields_for :quilts do |quilt_builder|%>
-       
 
-        <p><%= quilt_builder.label :quilt_name %>
-        <%= quilt_builder.text_field :quilt_name %></p>
-
-        <p><%= quilt_builder.label "Is it Finished?" %>
-        <%= quilt_builder.select :is_finished, options_for_select([['Yes', 'Yes'], ['No', 'No']]) %></p>
-
-        <% end%>
-        </div>
   
     <%= f.submit "Create Quilter" %>
 <% end %>

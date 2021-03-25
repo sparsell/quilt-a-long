@@ -39,15 +39,15 @@
                 </td>
 
                 <td> 
-                <section class="btn btn-sm">
+                <p class="btn btn-sm">
                         <%= link_to "Add a Quilt", new_quilter_quilt_path(q) %>
-                    </section>
-                    <section class="btn btn-sm">
+                    </p>
+                    <p class="btn btn-sm">
                         <%= link_to "Edit", edit_quilter_path(q) %>
-                    </section>
-                    <section class="btn btn-sm">
+                    </p>
+                    <p class="btn btn-sm">
                         <%= link_to "Delete", quilter_path(q), method: :delete, data: { confirm: "Are you sure?" }  %>
-                    </section>
+                    </p>
                 </td>
             </tr>
               <% end %>
