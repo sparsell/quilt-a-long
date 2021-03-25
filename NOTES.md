@@ -57,4 +57,61 @@ Style TODOs:
         <% end %>
     </div>
 
+<div class="qal-form-section">
+        <%= f.label :quilter_name, "Prizes:" %>
+            <div>
+                <%= f.collection_check_boxes :prize_ids, Prize.all, :id, :prize_name %>
+            </div>
+
+        <h4><%= f.label "Or Add a New Prize:" %></h4>
+            <%= f.fields_for :prizes do |build_prize|%>
+                <p><%= build_prize.label :prize_name %></p>
+                <p><%= build_prize.text_field :prize_name %></p>
+                <p><%= build_prize.label :sponsor_name, "Sponsored by:" %>
+            
+                <% end %> 
+    </div>
+
+Removed from quilter New
+    <%# has_many %>
+    <div class="new-quilt">
+   <%= f.fields_for :quilts do |quilt_builder|%>
+       
+
+        <p><%= quilt_builder.label :quilt_name %>
+        <%= quilt_builder.text_field :quilt_name %></p>
+
+        <p><%= quilt_builder.label "Is it Finished?" %>
+        <%= quilt_builder.select :is_finished, options_for_select([['Yes', 'Yes'], ['No', 'No']]) %></p>
+
+        <% end%>
+        </div>
     
+    Removed from QAL:
+    <div class="qal-form-section">
+        <h4><%= f.label :quilter_name, "Choose your quilters:" %></h4>
+            <div>
+                <%= f.collection_check_boxes :quilter_ids, Quilter.all, :id, :quilter_name %>
+                <%# <%= f.collection_select :name, User.all, :name, :name %>
+            </div>
+
+        <h4><%= f.label "Or Add a New Quilter:" %></h4>
+            <%= f.fields_for :quilters do |build_quilter|%>
+                <p><%= build_quilter.label :quilter_name %></p>
+                <p><%= build_quilter.text_field :quilter_name %></p>
+                <% end %> 
+    </div>
+
+    <div class="qal-form-section">
+        <%= f.label :prize_name, "Prizes:" %>
+            <div>
+                <%= f.collection_check_boxes :prize_ids, Prize.all, :id, :prize_name %>
+            </div>
+
+        <h4><%= f.label "Or Add a New Prize:" %></h4>
+            <%= f.fields_for :prizes do |build_prize|%>
+                <p><%= build_prize.label :prize_name %></p>
+                <p><%= build_prize.text_field :prize_name %></p>
+            
+                <% end %> 
+    </div>
