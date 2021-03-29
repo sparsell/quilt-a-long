@@ -5,6 +5,7 @@ class Quilter < ApplicationRecord
 
     validates :quilter_name, uniqueness: true, presence: true
 
-   
     accepts_nested_attributes_for :quilts
+
+    # scope :quilters_with_finished_quilts, -> {joins(:quilts).where('quilts.is_finished = true')}
 end

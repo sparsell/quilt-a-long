@@ -19,9 +19,7 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
-        @qals = current_user.qals.all
-        # @quilters = current_user.qals.quilters.all
-        
+        @qals = current_user.qals.all 
     end
 
     def index
