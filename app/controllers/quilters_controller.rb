@@ -5,6 +5,7 @@ class QuiltersController < ApplicationController
         @quilters = Quilter.all 
         @qals = Qal.all
         @quilts = Quilt.all
+        # @quilters_with_finished_quilts = Quilter.quilters_with_finished_quilts.count
     end
 
     
@@ -20,7 +21,7 @@ class QuiltersController < ApplicationController
         if @quilter.save
             redirect_to @quilter
         else
-            binding.pry
+            flash[:message] = "That name is already taken. Please choose another."
             render :new
         end
     end

@@ -19,8 +19,9 @@ class SponsorsController < ApplicationController
     def create
         @sponsor = Sponsor.create(sponsor_params)
         if @sponsor.save
-            redirect_to sponsor_path(@sponsor)
+            redirect_to sponsors_path
         else
+            flash[:message] = "#{@sponsor.sponsor_name} is already a Sponsor. Please try again."
             render :new
         end
     end
