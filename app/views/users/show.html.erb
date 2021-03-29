@@ -12,13 +12,9 @@
                 <h5><%= @user.qals.size %></h5><br>
 
              <% if current_user.id == @user.id %>
-                <section class="btn btn-sm">
-                    <%= link_to "Edit Profile ", edit_user_path(@user) %>
-                    <% end %>
-                </section>
+                    <p class="btn btn-sm"><%= link_to "Edit Profile ", edit_user_path(@user) %>
+                <% end %></p>
         </aside>    
-
-    
 
         <section class="user-qals">
             <h4>My Quilt-A-Longs</h4>
@@ -27,15 +23,11 @@
                     <%= link_to qal.qal_name, qal_path(qal) %><br>
                 </div>
                     <% end %><br>
-            <section class="btn btn-sm">
-                <%= link_to "View All", qals_path %>
-            </section>
-
-            <section class="btn btn-sm">
-                <%= link_to "Add New", new_qal_path %>
-            </section>
+            <p class="btn btn-sm"><%= link_to "View All", qals_path %></p>
+            <p class="btn btn-sm"><%= link_to "Add New", new_qal_path %></p>
 
         </section>
+
 
         
 

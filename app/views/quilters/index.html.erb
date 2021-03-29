@@ -1,8 +1,6 @@
 <h1> Quilters </h1>
 
-    <section class="btn btn-sm">
-        <%= link_to "Add New", new_quilter_path %>
-    </section>
+    <p class="btn btn-sm"><%= link_to "Add New", new_quilter_path %></p>
 
     <table class="table">
         <thead>
@@ -38,6 +36,7 @@
                 </td>
 
                 <td> 
+                        
                     <p class="btn btn-sm"><%= link_to "Add a Quilt", new_quilter_quilt_path(q) %></p>
                     <p class="btn btn-sm"><%= link_to "Edit", edit_quilter_path(q) %></p>
                     <p class="btn btn-sm"><%= link_to "Delete", quilter_path(q), method: :delete, data: { confirm: "Are you sure?" }  %></p>
