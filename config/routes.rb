@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   #omniauth route
   match '/auth/:provider/callback', to: 'sessions#omniauth', via: [:get, :post]
-  # match '/auth/google_oauth2/callback', to: 'sessions#omniauth', via: [:get, :post]
-  # match '/auth/github/callback', to: 'sessions#omniauth', via: [:get, :post]
 
     controller :sessions do
       get 'login', to: 'sessions#new'
@@ -26,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :qals
-  resources :sponsors
+#   resources :sponsors
   resources :prizes
   resources :quilts
 
@@ -34,4 +32,7 @@ Rails.application.routes.draw do
     resources :quilts
   end
 
+  resources :sponsors do 
+    resources :prizes
+  end
 end

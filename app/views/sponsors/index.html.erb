@@ -20,20 +20,21 @@
 
                 <%# Sponsor has_many QALs through Prizes: %>
                 <td>  
-
+                    <p><%= s.qals.qal_id %></p>
                 </td>
                
-
                 <%# Sponsor has_many Prizes: %>
                  <td>
-                      
+                     <p><%= s.prizes %></p>
+        
                 </td>
                 
 
                 <td> 
-                    <p class="btn btn-sm"><%= link_to "Add a Prize", new_prize_path %></p>
+                     <p class="btn btn-sm"><%= link_to "Add a Prize", new_sponsor_prize_path(s) %></p>
                     <p class="btn btn-sm"><%= link_to "Edit", edit_sponsor_path(s) %></p>
                     <p class="btn btn-sm"><%= link_to "Delete", sponsor_path(s), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+                   
                 </td>
             </tr>
               <% end %>

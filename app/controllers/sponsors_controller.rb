@@ -3,6 +3,8 @@ class SponsorsController < ApplicationController
 
     def index
         @sponsors = Sponsor.all
+        @qals = Qal.all
+        @prizes = Prize.all
 
     end
 
