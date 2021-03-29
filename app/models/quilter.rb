@@ -1,7 +1,7 @@
 class Quilter < ApplicationRecord
 
     belongs_to :qal
-    has_many :quilts 
+    has_many :quilts, dependent: :destroy
 
     validates :quilter_name, uniqueness: true, presence: true
 

@@ -5,7 +5,6 @@
     </section>
 
     <table class="table">
-
         <thead>
             <tr>
               <th> Name </th>
@@ -39,18 +38,14 @@
                 </td>
 
                 <td> 
-                <p class="btn btn-sm">
-                        <%= link_to "Add a Quilt", new_quilter_quilt_path(q) %>
-                    </p>
-                    <p class="btn btn-sm">
-                        <%= link_to "Edit", edit_quilter_path(q) %>
-                    </p>
-                    <p class="btn btn-sm">
-                        <%= link_to "Delete", quilter_path(q), method: :delete, data: { confirm: "Are you sure?" }  %>
-                    </p>
+                    <p class="btn btn-sm"><%= link_to "Add a Quilt", new_quilter_quilt_path(q) %></p>
+                    <p class="btn btn-sm"><%= link_to "Edit", edit_quilter_path(q) %></p>
+                    <p class="btn btn-sm"><%= link_to "Delete", quilter_path(q), method: :delete, data: { confirm: "Are you sure?" }  %></p>
                 </td>
             </tr>
               <% end %>
         </tbody>
     </table>
+
+
 

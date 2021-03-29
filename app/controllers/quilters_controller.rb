@@ -1,6 +1,13 @@
 class QuiltersController < ApplicationController
     before_action :require_login
 
+    def index
+        @quilters = Quilter.all 
+        @qals = Qal.all
+        @quilts = Quilt.all
+    end
+
+    
     def new
         @quilter = Quilter.new
         @qals = Qal.all
@@ -37,12 +44,6 @@ class QuiltersController < ApplicationController
         else
             render :edit
         end    
-    end
-
-    def index
-        @quilters = Quilter.all 
-        @qals = Qal.all
-        @quilts = Quilt.all
     end
 
     def destroy
