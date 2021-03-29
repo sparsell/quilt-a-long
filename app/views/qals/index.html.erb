@@ -23,13 +23,13 @@
                 <td><%= q.end_date %></td> 
                 <% if current_user.id == q.user_id %> 
                 <td> 
-                    <section class="btn btn-sm">
+                    <p class="btn btn-sm">
                         <%= link_to "Edit", edit_qal_path(q)%>
-                    </section>
+                    </p>
 
-                    <section class="btn btn-sm">
+                    <p class="btn btn-sm">
                   <%= link_to "Delete", qal_path(q), method: :delete, data: { confirm: "Are you sure?" }  %> 
-                    </section>
+                    </p>
                     
                     
                 </td>
