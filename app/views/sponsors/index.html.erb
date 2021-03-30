@@ -1,6 +1,7 @@
 <h1> Sponsors </h1>
 
-    <p class="btn btn-sm"><%= link_to "Add New", new_sponsor_path %></p>
+    <p class="btn btn-sm"><%= link_to "Add a Sponsor", new_sponsor_path %></p>
+    <p class="btn btn-sm"><%= link_to "Add a Prize", new_prize_path %></p>
 
     <table class="table">
         <thead>
@@ -20,18 +21,21 @@
 
                 <%# Sponsor has_many QALs through Prizes: %>
                 <td>  
-                    <p><%= s.qals.qal_id %></p>
+                    <p><% s.qals.each do |qal| %></p>
+                    <%= qal.qal_name %>
+                    <% end %>
                 </td>
                
                 <%# Sponsor has_many Prizes: %>
                  <td>
-                     <p><%= s.prizes %></p>
+                     <p><% s.prizes.each do |prize| %></p>
+                        <%= prize.prize_name %>
+                     <% end %>
         
                 </td>
                 
 
                 <td> 
-                     <p class="btn btn-sm"><%= link_to "Add a Prize", new_sponsor_prize_path(s) %></p>
                     <p class="btn btn-sm"><%= link_to "Edit", edit_sponsor_path(s) %></p>
                     <p class="btn btn-sm"><%= link_to "Delete", sponsor_path(s), method: :delete, data: { confirm: "Are you sure?" }  %></p>
                    

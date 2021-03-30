@@ -2,14 +2,19 @@ class SponsorsController < ApplicationController
     before_action :require_login
 
     def index
+    #  binding.pry
         @sponsors = Sponsor.all
-        @qals = Qal.all
-        @prizes = Prize.all
+        @qals = Qal.all #has many QALs through prizes
+        @prizes = Prize.all  #has many prizes
 
     end
 
     def show
+         
         @sponsor = Sponsor.find_by(id: params[:id])
+      
+       
+        
     end
 
     def new
