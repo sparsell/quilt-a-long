@@ -24,15 +24,14 @@ Rails.application.routes.draw do
 
   resources :users
   resources :qals
-#   resources :sponsors
   resources :prizes
-  resources :quilts
 
+  resources :quilts
   resources :quilters do 
-    resources :quilts
+    resources :quilts, :only => [:create, :index, :new]
   end
 
   resources :sponsors do 
-    resources :prizes
+    resources :prizes, :only => [:create, :index, :new]
   end
 end

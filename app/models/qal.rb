@@ -9,6 +9,11 @@ class Qal < ApplicationRecord
 
     validates :qal_name, presence: true, uniqueness: true
 
+    accepts_nested_attributes_for :prizes
+    accepts_nested_attributes_for :quilters
+    accepts_nested_attributes_for :quilts
+
+
     scope :qals_with_finished_quilts, -> {joins(:quilts).where('quilts.is_finished = true')}
 
     # scope :@qals_with_most_quilters, -> {joins (:quilters).where('quilters.count= ')}
