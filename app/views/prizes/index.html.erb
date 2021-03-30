@@ -1,1 +1,30 @@
 <h3> All Prizes </h3>
+
+<p class="btn btn-sm"><%= link_to "Add New", new_prize_path %></p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Prize </th>
+            <th> Quilt-A-Long </th>
+            <th> Sponsor </th>
+            <th> Actions </th>
+            </tr>
+    </thead>
+    
+        
+    <tbody>
+        <% @prizes.each do |p| %>
+        <tr>
+            <td><%= p.prize_name %></td>
+            <td><%= p.qal.qal_name %></td>
+            <td><%= p.sponsor.sponsor_name %></td>
+             <td><p class="btn btn-sm"><%= link_to "Edit", edit_prize_path(p) %></p>
+                    <p class="btn btn-sm"><%= link_to "Delete", prize_path(p), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+
+</table>

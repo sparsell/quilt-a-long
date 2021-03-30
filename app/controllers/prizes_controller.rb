@@ -1,6 +1,7 @@
 class PrizesController < ApplicationController
 
     def index 
+        @prizes = Prize.all
     end
 
     def show
@@ -9,19 +10,24 @@ class PrizesController < ApplicationController
 
     def new
         @prize = Prize.new
-        @sponsor = Sponsor.find_by(id: params[:sponsor_id])
+        # @sponsor = Sponsor.find_by(id: params[:sponsor_id])
         # binding.pry
        
     end
 
     def create
-       
         @prize = Prize.create(prize_params)
         if @prize.save
-            redirect_to sponsors_path
+            redirect_to prizes_path
         else
             render :new
         end
+    end
+
+    def edit
+    end
+
+    def update
     end
 
 end
