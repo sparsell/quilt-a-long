@@ -28,11 +28,7 @@
         <%= f.label "Quilt Style" %>
         <%= f.select :quilting_style, options_for_select([['Modern', 'Modern'], ['Traditional', 'Traditional']]) %>
     </div>
-
     
-
-    
-
 <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
 <% end %>
