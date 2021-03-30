@@ -1,19 +1,21 @@
-<h3> New Quilt </h3>
+<h3> Add a New Quilt </h3>
 
-<%= form_for (@quilt) do |f| %>
+<%= form_for ([@quilt, @quilter]) do |f| %>
 
     <p><%= f.label "Quilt Name:" %></p>
-    <%= f.text_field :quilt_name %>
+    <p><%= f.text_field :quilt_name %></p>
     
     <p><%= f.label "Is the quilt finished?" %></p>
     <%= f.select :is_finished, [["Yes", true], ["No", false]], :include_blank => true %>
    
     <p><%= f.label "Select Quilt-A-Long:" %></p>
 
+<%# should only be able to add a quilt to the quilter's QAL - not a drop down list %>
     <%= f.select :qal_id, @qals.collect { |q| [q.qal_name] } %>
     
-    <p><%= f.submit%></p>
+    <p><%= f.submit "Create New Quilt" %></p>
 
 <% end %>
+
 
 

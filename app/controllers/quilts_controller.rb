@@ -2,20 +2,20 @@ class QuiltsController < ApplicationController
     before_action :require_login
 
     def index
-        # @quilts = Quilt.all
-        @quilts = @quilter.quilts
+        @quilts = Quilt.all
     end
 
     def new
         @quilt = Quilt.new
-        @quilters = Quilter.all
         @qals = Qal.all
-        # @quilt = @quilter.quilt.build
     end
 
     def create
-            @quilter = Quilter.find_by(id: params[:id])
-            @quilt = @quilter.build(quilt_params)
+        # binding.pry
+            @quilter = Quilter.find_by(id: params[:quilter_id])
+            binding.pry
+            # @quilt = @quilt.build_quilter(quilt_params)
+            # binding.pry
             if @quilt.save
             redirect_to quilter_quilts_path(@quilter)
             else
@@ -25,13 +25,12 @@ class QuiltsController < ApplicationController
 
     def show
         @quilt = Quilt.find_by(id: params[:id])
-        # binding.pry
     end
 
     private
 
         def quilt_params
-            params.require(:quilt).permit(:quilt_name, :is_finished, :quilter_id) 
+            params.require(:quilt).permit(:quilt_name, :is_finished, :quilter_id, :qal_id) 
         end
 
 end
