@@ -1,6 +1,13 @@
 
 <h1><%= @qal.qal_name %></h1>
 
+<% if current_user.id == @qal.user_id %>
+    <p class="btn btn-sm"><%= link_to "Edit", edit_qal_path(@qal)%></p>
+    <p class="btn btn-sm"><%= link_to "Delete", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+    <% end %>
+
+     <p class="btn btn-sm"><%= link_to "My Profile", current_user %></p>
+
 <div>
     <p class="qal-label">Designer: <%= @qal.user.company_name%></p>
 </div>
@@ -14,35 +21,28 @@
 </div>
 
 <div>
-    <p class="qal_label">Quilters: <% @qal.quilters.each do |quilter| %>
+    <p class="qal-label">My Quilters: <% @qal.quilters.each do |quilter| %></p>
         <ul>
             <li><%= link_to quilter.quilter_name, quilter_path(quilter) %></li>
-            <li>[Name of quilters' quilts.]</li>
+            <li>Quilts: <%= quilter.quilts.count%> </li>
         </ul>
         <% end %><br>
-        <% if current_user.id == @qal.user_id %>
-    <p class="btn btn-sm"><%= link_to "Add a Quilter", new_quilter_path(@quilter)%></p>
-    <% end %>
+       
+    <p class="btn btn-sm"><%= link_to "View all Quilters", quilters_path %></p>
+  
 
     <p class="qal-label">Prizes: <% @qal.prizes.each do |prize| %></p>
         <ul>
             <li><%= link_to prize.prize_name, prize_path(prize) %></li>
+            <li>Sponsored by: <%= prize.sponsor.sponsor_name %></li>
         </ul>
         <% end %>
-
-        <% if current_user.id == @qal.user_id %>
-    <p class="btn btn-sm">
-            <%= link_to "Add a Prize", new_prize_path(@prize)%>
-    </p>
-    <% end %>
+        
+    <p class="btn btn-sm"><%= link_to "View all Prizes", prizes_path%></p>
+    
 </div>
 
 <footer>
-<% if current_user.id == @qal.user_id %>
-    <p class="btn btn-sm"><%= link_to "Edit", edit_qal_path(@qal)%></p>
-    <p class="btn btn-sm"><%= link_to "Delete", qal_path(@qal), method: :delete, data: { confirm: "Are you sure?" }  %></p>
-    <% end %>
 
-     <p class="btn btn-sm"><%= link_to "My Profile", current_user %></p>
 </footer>
     
