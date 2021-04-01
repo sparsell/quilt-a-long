@@ -1,0 +1,6 @@
+<%= form_for (@sponsor) do |f| %>
+<%= f.label :sponsor_name%>
+<%= f.text_field :sponsor_name %>
+
+<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

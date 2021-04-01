@@ -1,6 +1,5 @@
-<%= form_for (@sponsor) do |f| %>
-<%= f.label :sponsor_name%>
-<%= f.text_field :sponsor_name %>
+<% provide(:button_text, "Edit Sponsor") %>
 
-<%= f.submit "Edit Sponsor" %>
-<% end %>
+<h2> Edit Sponsor <%= @sponsor.sponsor_name %></h2>
+
+    <%= render 'form' %>
