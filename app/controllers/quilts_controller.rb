@@ -3,21 +3,22 @@ class QuiltsController < ApplicationController
 
     def index
         @quilts = Quilt.all
+        # binding.pry
     end
 
     def new
+        @quilter = Quilter.find_by(id: params[:quilter_id])
+        @qal = @quilter.qal_id
         @quilt = Quilt.new
+        @quilt.build_qal
+        @quilt.build_quilter
         @qals = Qal.all
     end
 
     def create
-        # binding.pry
-            @quilter = Quilter.find_by(id: params[:quilter_id])
-            binding.pry
-            # @quilt = @quilt.build_quilter(quilt_params)
-            # binding.pry
+        @quilt = Quilt.new(quilt_params)
             if @quilt.save
-            redirect_to quilter_quilts_path(@quilter)
+            redirect_to quilters_path
             else
                 render :new
             end
@@ -25,6 +26,10 @@ class QuiltsController < ApplicationController
 
     def show
         @quilt = Quilt.find_by(id: params[:id])
+    end
+
+    def destroy
+
     end
 
     private
