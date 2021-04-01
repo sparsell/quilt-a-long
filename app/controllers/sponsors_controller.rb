@@ -9,11 +9,7 @@ class SponsorsController < ApplicationController
     end
 
     def show
-         
         @sponsor = Sponsor.find_by(id: params[:id])
-      
-       
-        
     end
 
     def new
@@ -38,7 +34,8 @@ class SponsorsController < ApplicationController
         @sponsor = Sponsor.find_by(id: params[:id])
         @sponsor.update(sponsor_params)
         if @sponsor.save
-        redirect_to sponsor_path(@sponsor)
+            flash[:message] = "Successfully updated Sponsor."
+        redirect_to sponsors_path
         else  
             render :edit
         end
@@ -46,15 +43,17 @@ class SponsorsController < ApplicationController
 
     def destroy
         @sponsor = Sponsor.find(params[:id])
-        @sponsor.delete
+        if @sponsor.delete
+            flash[:message] = "Successfully deleted Sponsor."
         redirect_to sponsors_path
+        else   
+            render :edit  
+        end
     end
 
 
     private 
-
         def sponsor_params
             params.require(:sponsor).permit(:sponsor_name)
         end
-
 end
