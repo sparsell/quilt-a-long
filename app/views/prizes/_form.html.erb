@@ -1,0 +1,16 @@
+
+
+<%= form_for @prize do |f| %>
+    <%= f.label :prize_name %>
+    <%= f.text_field :prize_name %>
+
+<%# Should only be able to see the User's QALs: %>
+    <p><%= f.label :qal_id, "Choose a Quilt-A-Long" %>
+        <%= f.collection_select :qal_id, Qal.all, :id, :qal_name %></p>
+
+        <p><%= f.label :qal_id, "Sponsored by:" %>
+    <%= f.collection_select :sponsor_id, Sponsor.all, :id, :sponsor_name %></p>
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+ 
+    <% end %>
