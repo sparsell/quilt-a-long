@@ -1,0 +1,14 @@
+
+
+<%= form_for (@quilter) do |f| %>
+
+<%= f.label :quilter_name %>
+<%= f.text_field :quilter_name %>
+<br>
+<%= f.label "My Quilt-A-Long" %>
+<%= f.collection_select :qal_id, Qal.all, :id, :qal_name %>
+    <br>
+
+<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    
+<% end %>

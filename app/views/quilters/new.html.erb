@@ -1,17 +1,3 @@
-<% provide(:title, "Add a Quilter") %>
+<% provide(:button_text, "Add a Quilter") %>
 
-<h1> Add a Quilter </h1>
-
-<%= form_for (@quilter) do |f| %>
-
-    <p><%= f.label :quilter_name, "Name" %></p>
-    <%= f.text_field :quilter_name %>
-
-<%# belongs_to %>
-     <p><%= f.label :qal_id, "QAL" %>
-        <%= f.collection_select :qal_id, Qal.all, :id, :qal_name %></p>
-
-
-  
-    <%= f.submit "Create Quilter" %>
-<% end %>
+<%= render 'form' %>

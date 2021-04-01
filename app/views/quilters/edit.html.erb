@@ -1,21 +1,5 @@
-<%= form_for (@quilter) do |f| %>
+<% provide(:button_text, 'Edit Quilter') %>
 
-<%= f.label :quilter_name %>
-<%= f.text_field :quilter_name %>
-<br>
-<%= f.label "My Quilt-A-Long" %>
-<%= f.collection_select :qal_id, Qal.all, :qal_name, :qal_name %>
-    <br>
+<h2> Edit Quilter: <%=@quilter.quilter_name %></h2>
 
-<%= f.label "Add a Quilt" %>
-    <%= f.fields_for :quilts do |quilt_builder|%>
-        <%= quilt_builder.label :quilt_name %>
-        <p><%= quilt_builder.text_field :quilt_name %></p>
-        <p><%= quilt_builder.label "Is it Finished?" %>
-        <%= quilt_builder.select :is_finished, options_for_select([['Yes', 'Yes'], ['No', 'No']]) %></p>
-        <% end%>
-  
-
-<%= f.submit "Update Quilter" %>
-    
-<% end %>
+<%= render 'form' %>
