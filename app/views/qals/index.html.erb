@@ -3,10 +3,10 @@
 <p class="btn btn-sm"><%= link_to "Add New", new_qal_path %></p>
 <p class="btn btn-sm"><%= link_to "My Profile", current_user %></p>
 
-<p>Most popular Quilting Style: <%= %>
-<p>Most popular Skill Level: <%= %>
+<p>Good for Beginners: <% @good_for_beginners.each do |beginner| %> </p>
+                        <p><%= beginner.qal_name %></p>
+                        <% end %>
 
-<p>Quilt-A-Long with the most Quilters: (QAL Name) <%= @qals_with_most_quilters %>
 
     <table class="table">
         <thead>
