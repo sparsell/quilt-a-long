@@ -28,6 +28,7 @@ class QuiltersController < ApplicationController
 
     def show
         @quilter = Quilter.find_by(id: params[:id])
+        @qal = @quilter.qal
       
     end
 
@@ -37,9 +38,7 @@ class QuiltersController < ApplicationController
 
     def update
         @quilter = Quilter.find_by(id: params[:id])
-    #    binding.pry
         if @quilter.update(quilter_params)
-            #  binding.pry
             flash[:message] = "Successfully updated Quilter"
             redirect_to quilter_path(@quilter)
         else

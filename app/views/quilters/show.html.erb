@@ -3,13 +3,13 @@
 
 <h1><%= @quilter.quilter_name %></h1>
 <div>
-    <h4> My Quilt-A-Long: <%= @quilter.qal.qal_name %> </h4>
+    <h4> My Quilt-A-Long: <%= link_to @quilter.qal.qal_name, qal_path(@qal) %> </h4>
 
     <h4> My Quilts: <% @quilter.quilts.each do |q| %> </h4>
             <li><p><%= q.quilt_name %></p></li>
         <% end %>
 
-        <p class="btn btn-sm"> <%= link_to "Add a Quilt", new_quilt_path %></p>
+        <p class="btn btn-sm"> <%= link_to "Add a Quilt", new_quilter_quilt_path(@quilter) %></p>
 </div>
 <div>        
     <p class="btn btn-sm"><%= link_to "Edit", edit_quilter_path(@quilter) %></p>
