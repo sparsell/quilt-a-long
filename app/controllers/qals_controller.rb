@@ -17,6 +17,7 @@ class QalsController < ApplicationController
 
     def show
         @qal = Qal.find_by(id: params[:id])
+       
     end
 
     def edit
@@ -42,8 +43,8 @@ class QalsController < ApplicationController
     def index
         @qals = Qal.all
         @users = User.all
-        @qals_with_finished_quilts = Qal.qals_with_finished_quilts.count
-      
+        #  binding.pry
+        @good_for_beginners = @qals.beginner
     end
 
 
