@@ -22,27 +22,29 @@
 
 <div>
     <p class="qal-label">My Quilters: <% @qal.quilters.each do |quilter| %></p>
+    
         <ul>
             <li><%= link_to quilter.quilter_name, quilter_path(quilter) %></li>
-            <li>Quilts: <%= quilter.quilts.count%> </li>
+            <li>Quilts: <% quilter.quilts.each do |quilt_name| %> </li>
+                        <p><%= quilt_name.quilt_name %></p>
+                        <% end %>
         </ul>
         <% end %><br>
        
     <p class="btn btn-sm"><%= link_to "View all Quilters", quilters_path %></p>
   
 
+
     <p class="qal-label">Prizes: <% @qal.prizes.each do |prize| %></p>
         <ul>
             <li><%= link_to prize.prize_name, prize_path(prize) %></li>
+            <% if prize.sponsor %>
             <li>Sponsored by: <%= prize.sponsor.sponsor_name %></li>
+                <%end%>
         </ul>
         <% end %>
+        <p> <%= link_to "See My Prizes", qal_prizes_path(@qal) %>
         
     <p class="btn btn-sm"><%= link_to "View all Prizes", prizes_path%></p>
     
 </div>
-
-<footer>
-
-</footer>
-    
