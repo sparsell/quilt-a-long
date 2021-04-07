@@ -6,6 +6,6 @@ class Sponsor < ApplicationRecord
     accepts_nested_attributes_for :prizes
     accepts_nested_attributes_for :qals
 
-    validates :sponsor_name, uniqueness: :true
+    validates :sponsor_name, uniqueness: :true, presence: true
 
 end
