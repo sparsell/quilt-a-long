@@ -55,6 +55,7 @@ p.omniauth_button {
     margin: 2em;
   }
 
+
 //  Forms
 
 input, textarea, select {
@@ -69,7 +70,7 @@ input {
 }
 
 select {
-    width:15%;
+    width:25%;
 }
 
 #error_explanation {
@@ -77,15 +78,24 @@ select {
     ul {
         color: red;
         margin: 0 0 30px 0;
+        li {
+            color: red;
+            border: 1px, red solid;
+            background-color: palegoldenrod;
+            padding: 1em;
+            margin: 1em;
+            width: 50%;
+            
+        }
         }
     }
 
-.field_with_errors {
-    @extend .has-error;
-        .form-control {
-            color: $state-danger-text;
-        }
-}
+// .field_with_errors {
+//     @extend .has-error;
+//         .form-control {
+//             color: $state-danger-text;
+//         }
+// }
 
 /* universal */
 
