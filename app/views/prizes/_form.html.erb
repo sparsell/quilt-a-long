@@ -1,4 +1,5 @@
 
+<%= render partial: "layouts/errors", locals: {object: @prize} %>
 
 <%= form_for @prize do |f| %>
     <%= f.label :prize_name %>

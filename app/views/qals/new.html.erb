@@ -2,6 +2,8 @@
 
 <h1>Add a new Quilt-A-Long</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @qal} %>
+
 <%= form_for(@qal) do |f| %>
 
     <div>
