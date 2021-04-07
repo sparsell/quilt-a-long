@@ -21,7 +21,6 @@ class QuiltersController < ApplicationController
         if @quilter.save
             redirect_to @quilter
         else
-            flash[:message] = "That name is already taken. Please choose another."
             render :new
         end
     end
@@ -55,9 +54,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            # params.require(:quilter).permit(:quilter_name, :qal_id, quilts_attributes: [:quilt_name, :is_finished])
             params.require(:quilter).permit(:id, :quilter_name, :qal_id)
-
         end
 
 end

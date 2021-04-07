@@ -21,7 +21,6 @@ class SponsorsController < ApplicationController
         if @sponsor.save
             redirect_to sponsors_path
         else
-            flash[:message] = "#{@sponsor.sponsor_name} is already a Sponsor. Please try again."
             render :new
         end
     end
