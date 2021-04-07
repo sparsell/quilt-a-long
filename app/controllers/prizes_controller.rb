@@ -21,9 +21,7 @@ class PrizesController < ApplicationController
         @prize = Prize.create(prize_params)
         @qal = params[:qal_id]
         if @prize.save
-            flash[:message] = "Successfully added Prize."
             redirect_to sponsors_path
-            # redirect_to qal_prizes_path(@qal)
         else
             render :new
         end
@@ -34,15 +32,23 @@ class PrizesController < ApplicationController
     end
 
     def update
+        @prize = Prize.find_by(id: params[:id])
+        @qal = @prize.qal_id
+        if @prize.update(prize_params)
+            flash[:message] = "Successfully updated Prize"
+            redirect_to qal_prizes_path(@qal)
+        else
+            render :edit
+        end
     end
 
     def destroy
-        # binding.pry
         @prize = Prize.find_by(id: params[:id])
+        @qal = @prize.qal_id
         if 
         @prize.destroy
-            flash[:message] = "Prize was successfully destroyed."
-            redirect_to qals_path
+            flash[:message] = "Prize was successfully deleted."
+            redirect_to qal_prizes_path(@qal)
         end
     end
 
