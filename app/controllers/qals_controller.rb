@@ -10,7 +10,6 @@ class QalsController < ApplicationController
         if @qal.save
             redirect_to qal_path(@qal)
         else
-            flash[:message] = "That name is taken. Please enter a different Quilt-A-Long name."
             render :new
         end
     end
@@ -43,7 +42,6 @@ class QalsController < ApplicationController
     def index
         @qals = Qal.all
         @users = User.all
-        #  binding.pry
         @good_for_beginners = @qals.beginner
     end
 
