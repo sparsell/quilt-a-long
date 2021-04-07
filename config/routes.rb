@@ -23,15 +23,18 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
 
   resources :users
-  resources :qals
-  resources :prizes
+
+#   nesting new prize form
+  resources :qals do 
+    resources :prizes, :only => [:create, :index, :new, :show]
+  end
 
   resources :quilts
+#   nestiing new quilt form
   resources :quilters do 
     resources :quilts, :only => [:create, :index, :new]
   end
 
-  resources :sponsors do 
-    resources :prizes, :only => [:create, :index, :new]
-  end
+  resources :sponsors 
+  resources :prizes
 end
