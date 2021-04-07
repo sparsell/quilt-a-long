@@ -7,5 +7,4 @@ class Quilter < ApplicationRecord
 
     accepts_nested_attributes_for :quilts
 
-    # scope :quilters_with_finished_quilts, -> {joins(:quilts).where('quilts.is_finished = true')}
 end
