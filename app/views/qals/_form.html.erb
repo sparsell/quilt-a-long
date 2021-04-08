@@ -1,4 +1,4 @@
-
+<%= render partial: "layouts/errors", locals: {object: @qal} %>
 
 <%= form_for(@qal) do |f| %>
 
@@ -25,34 +25,6 @@
 <div>
     <%= f.label "Quilt Style" %>
     <%= f.select :quilting_style, options_for_select([['Modern', 'Modern'], ['Traditional', 'Traditional']]) %>
-</div>
-
-<div>
-    <%= f.label :quilter_name, "Choose your quilters:" %>
-    <div>
-        <%= f.collection_check_boxes :quilter_ids, Quilter.all, :id, :quilter_name %>
-    </div>
-<div>
-    <h4><%= f.label "Add a New Quilter:" %></h4>
-        <%= f.fields_for :quilters do |build_quilter|%>
-            <p><%= build_quilter.label :quilter_name %></p>
-            <p><%= build_quilter.text_field :quilter_name %></p>
-            <% end %> 
-</div>
-
-<div>
-    <%= f.label :quilter_name, "Prizes:" %>
-    <div>
-        <%= f.collection_check_boxes :prize_ids, Prize.all, :id, :prize_name %>
-    </div>
-<div>
-    <h4><%= f.label "Add a New Prize:" %></h4>
-        <%= f.fields_for :prizes do |build_prize|%>
-            <p><%= build_prize.label :prize_name %></p>
-            <p><%= build_prize.text_field :prize_name %></p>
-            <p><%= build_prize.label :sponsor_name, "Sponsored by:" %>
-          
-            <% end %> 
 </div>
 
 <%= f.submit yield(:button_text), class: "btn btn-primary" %>

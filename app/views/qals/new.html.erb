@@ -2,36 +2,5 @@
 
 <h1>Add a new Quilt-A-Long</h1>
 
-<%= render partial: "layouts/errors", locals: {object: @qal} %>
-
-<%= form_for(@qal) do |f| %>
-
-    <div>
-        <%= f.label :qal_name, "Quilt-A-Long Name:" %>
-        <%= f.text_field :qal_name %>
-    <div>
-
-    <div>
-        <%= f.label :start_date %>
-        <%= f.date_field :start_date %>
-    </div>
-
-    <div>
-        <%= f.label :end_date %>
-        <%= f.date_field :end_date %>
-    </div>
-
-    <div>
-        <%= f.label "Skill Level" %>
-        <%= f.select :skill_level, options_for_select([["Beginner", 'Beginner'], ["Intermediate", 'Intermediate'], ["Advanced", 'Advanced'], ["Challenging", 'Challenging']]) %>
-    </div>
-
-    <div>
-        <%= f.label "Quilt Style" %>
-        <%= f.select :quilting_style, options_for_select([['Modern', 'Modern'], ['Traditional', 'Traditional']]) %>
-    </div>
-    
-<%= f.submit yield(:button_text), class: "btn btn-primary" %>
-
-<% end %>
+<%= render 'form' %>
 
