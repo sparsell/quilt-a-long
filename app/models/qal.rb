@@ -16,6 +16,5 @@ class Qal < ApplicationRecord
 
     scope :beginner, -> {where(skill_level: 'Beginner')}
     
-
-    # scope :@qals_with_most_quilters, -> {joins (:quilters).where('quilters.count= ')}
+    scope :finished_quilts, -> {includes(:quilts).where(quilts: {is_finished: true})}
 end

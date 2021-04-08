@@ -1,0 +1,5 @@
+<p>Quilt-A-Longs with finished quilts: <% @finished_quilts.each do |qal|%>    </p>
+    <p><%=qal.qal_name%> </p>
+    <% end %> 
+
+    <p> <%= link_to "Back to all Quilt-A-Longs", qals_path %> </p>
