@@ -1,0 +1,5 @@
+<p>Quilt-A-Longs that are good for beginners: <% @good_for_beginners.each do |qal|%>    </p>
+    <p><%=qal.qal_name%> </p>
+    <% end %> 
+
+    <p> <%= link_to "Back to all Quilt-A-Longs", qals_path %> </p>
