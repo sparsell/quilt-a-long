@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   get '/profile', to: 'users#show'
+  get 'qals/finished_quilts', :to => 'qals#finished_quilts'
+  get 'qals/beginners', :to => 'qals#good_for_beginners'
 
   resources :users
 

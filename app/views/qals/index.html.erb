@@ -3,9 +3,9 @@
 <p class="btn btn-sm"><%= link_to "Add New", new_qal_path %></p>
 <p class="btn btn-sm"><%= link_to "My Profile", current_user %></p>
 
-<p>Good for Beginners: <% @good_for_beginners.each do |beginner| %> </p>
-                        <p><%= beginner.qal_name %></p>
-                        <% end %>
+
+<p class="btn btn-sm"> <%= link_to "Quilt-A-Longs for Beginners", qals_beginners_path %> </p>
+<p class="btn btn-sm"> <%= link_to "Quilt-A-Longs with finished quilts", qals_finished_quilts_path %> </p>                 
 
 
     <table class="table">

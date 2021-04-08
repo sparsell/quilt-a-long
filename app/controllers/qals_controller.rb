@@ -42,7 +42,17 @@ class QalsController < ApplicationController
     def index
         @qals = Qal.all
         @users = User.all
+    end
+
+    def good_for_beginners
+        @qals = Qal.all
         @good_for_beginners = @qals.beginner
+
+    end
+
+    def finished_quilts
+        @qals = Qal.all
+        @finished_quilts = @qals.finished_quilts
     end
 
 
