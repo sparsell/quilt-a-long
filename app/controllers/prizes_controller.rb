@@ -2,11 +2,7 @@ class PrizesController < ApplicationController
       before_action :require_login
       
     def index 
-        if
-        @prizes = Prize.where(qal_id: params[:qal_id])
-        else 
-            flash[:message] = "There aren't any prizes for this Quilt-A-Long"
-        end
+      @prizes = Prize.all
     end
 
     def show
