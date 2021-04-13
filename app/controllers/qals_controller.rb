@@ -55,6 +55,11 @@ class QalsController < ApplicationController
         @finished_quilts = @qals.finished_quilts
     end
 
+    def ending_soon
+        @qals = Qal.all
+        @ending_soon = @qals.ending_soon
+    end
+
 
     private
 

@@ -15,6 +15,6 @@ class Qal < ApplicationRecord
 
 
     scope :beginner, -> {where(skill_level: 'Beginner')}
-    
+    scope :ending_soon, -> { order(:end_date, :desc) }
     scope :finished_quilts, -> {includes(:quilts).where(quilts: {is_finished: true})}
 end

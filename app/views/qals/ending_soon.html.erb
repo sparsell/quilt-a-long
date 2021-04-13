@@ -1,0 +1,8 @@
+<p>Quilt-A-Longs by end date: <% @ending_soon.each do |qal|%>    </p>
+    <p><%=qal.qal_name%> </p><br>
+    <p><%=qal.end_date%> </p><br>
+
+    <% end %> 
+
+    <p class="btn btn-sm"> <%= link_to "Back to all Quilt-A-Longs", qals_path %> </p>
+
