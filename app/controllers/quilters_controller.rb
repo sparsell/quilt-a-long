@@ -2,9 +2,7 @@ class QuiltersController < ApplicationController
     before_action :require_login
 
     def index
-        @quilters = Quilter.all 
-        # #  binding.pry
-        # @quilters = Quilter.search(params[:search])
+        @quilters = Quilter.search(params[:search])
         @qals = Qal.all
         @quilts = Quilt.all
     end
@@ -13,7 +11,6 @@ class QuiltersController < ApplicationController
     def new
         @quilter = Quilter.new
         @qals = Qal.all
-      
     end
 
     def create
@@ -53,8 +50,7 @@ class QuiltersController < ApplicationController
     private
 
         def quilter_params
-            params.require(:quilter).permit(:id, :quilter_name, :qal_id)
-            # params.require(:quilter).permit(:id, :quilter_name, :qal_id, :search)
+            params.require(:quilter).permit(:id, :quilter_name, :qal_id, :search)
 
         end
 

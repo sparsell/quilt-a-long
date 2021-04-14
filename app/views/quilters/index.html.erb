@@ -2,6 +2,12 @@
 
     <p class="btn btn-sm"><%= link_to "Add New Quilter", new_quilter_path %></p>
 
+<h4> Search by Quilt-A-Long</h4>
+    <%= form_tag quilters_path, method: :get do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag ("Search") %>
+    <% end %>
+
     <table class="table">
         <thead>
             <tr>
@@ -14,7 +20,7 @@
         </thead>
 
         <tbody>
-        
+
             <% @quilters.each do |q| %>
             <tr>
                 <td><%= q.quilter_name %></td>
@@ -34,10 +40,7 @@
                      </ul>
                 </td>
 
-                <td> 
-
-                
-                        
+                <td>    
                     <p class="btn btn-sm"><%= link_to "Add a Quilt", new_quilter_quilt_path(q) %></p>
                     <p class="btn btn-sm"><%= link_to "Edit", edit_quilter_path(q) %></p>
                     <p class="btn btn-sm"><%= link_to "Delete", quilter_path(q), method: :delete, data: { confirm: "Are you sure?" }  %></p>
