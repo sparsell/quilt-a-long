@@ -25,14 +25,10 @@ Rails.application.routes.draw do
   get 'qals/beginners', :to => 'qals#good_for_beginners'
   get 'qals/ending_soon', :to => 'qals#ending_soon'
 
-  resources :users
-
-#   nesting new prize form
-  resources :qals do 
-    resources :prizes, :only => [:create, :index, :new, :show]
-  end
-
+  resources :users, :only => [:create, :new, :show, :edit, :update]
+  resources :qals 
   resources :quilts
+
 #   nestiing new quilt form
   resources :quilters do 
     resources :quilts, :only => [:create, :index, :new]
