@@ -21,11 +21,6 @@ class UsersController < ApplicationController
         @qals = current_user.qals.all 
     end
 
-    # def index
-    #     # @users = User.all
-    #     @users = User.paginate(page: params[:page])
-    # end
-
     def edit
         @user = User.find_by(id: params[:id])
     end
