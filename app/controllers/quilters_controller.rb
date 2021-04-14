@@ -3,16 +3,16 @@ class QuiltersController < ApplicationController
 
     def index
         @quilters = Quilter.all 
+        # #  binding.pry
+        # @quilters = Quilter.search(params[:search])
         @qals = Qal.all
         @quilts = Quilt.all
-        # @quilters_with_finished_quilts = Quilter.quilters_with_finished_quilts.count
     end
 
     
     def new
         @quilter = Quilter.new
         @qals = Qal.all
-        @quilter.quilts.build
       
     end
 
@@ -28,7 +28,6 @@ class QuiltersController < ApplicationController
     def show
         @quilter = Quilter.find_by(id: params[:id])
         @qal = @quilter.qal
-      
     end
 
     def edit
@@ -55,6 +54,8 @@ class QuiltersController < ApplicationController
 
         def quilter_params
             params.require(:quilter).permit(:id, :quilter_name, :qal_id)
+            # params.require(:quilter).permit(:id, :quilter_name, :qal_id, :search)
+
         end
 
 end

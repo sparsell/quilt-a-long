@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  # skip_before_action :require_login, except: [:new, :create]
 
     def new
     end
@@ -16,7 +15,6 @@ class SessionsController < ApplicationController
       end    
 
       def omniauth
-        # binding.pry
         @user = User.find_or_create_by(email: auth[:info][:email]) do |user|
             user.name = auth[:info][:name]
             user.password = SecureRandom.hex(12)
@@ -31,7 +29,6 @@ class SessionsController < ApplicationController
       end
       
       def destroy
-        # session.clear
         session.delete :user_id
         redirect_to root_path
       end

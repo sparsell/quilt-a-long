@@ -3,7 +3,6 @@ class QuiltsController < ApplicationController
 
     def index
         @quilts = Quilt.all
-        # binding.pry
     end
 
     def new
@@ -22,14 +21,6 @@ class QuiltsController < ApplicationController
             else
                 render :new
             end
-    end
-
-    def show
-        @quilt = Quilt.find_by(id: params[:id])
-    end
-
-    def destroy
-
     end
 
     private
